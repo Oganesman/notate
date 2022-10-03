@@ -1,4 +1,8 @@
 @import "../../../media.scss";
+.vh-bg{
+	height: 100vh;
+	background: #eee;
+}
 
 .image {
 	object-fit: cover;
@@ -14,7 +18,8 @@
 	margin-right: auto !important;
 }
 .card {
-	box-shadow: 0 4px 10px #92a9c0;
+	background: #fff !important;
+	box-shadow: 2px 3px 6px #92a9c0;
 	width: 75%;
 	max-width: 1250px;
 	border-radius: 15px;
