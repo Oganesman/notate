@@ -12,16 +12,7 @@ export class HomeService {
 	public arturka: any
 
 	constructor(private http: HttpClient, private fm: FlashMessagesService) {
-		let headers = new HttpHeaders()
-		headers.append('Content-Type', 'application/json')
-		this.http.get(`http://localhost:5000/user/fetch/notate?abc=${'6339e6da1fb0804a710270ad'}`)
-			.pipe(map((data: any) => 	
-				data
-			))
-			.subscribe(data => {
-				console.log(data);
-				this.arturka = data
-			})
+		this.showNotates()
 	}
 	// .filter((el: any) => { return el.author === '6339e6da1fb0804a710270ad' })
 
@@ -31,12 +22,14 @@ export class HomeService {
 				cssClass: 'custom-danger',
 				timeout: 3000
 			})
+			return false
 		}
-		else if (newNotate.description == '' || newNotate.description == undefined) {
+		if (newNotate.description == '' || newNotate.description == undefined) {
 			this.fm.show('Enter note description', {
 				cssClass: 'custom-danger',
 				timeout: 3000
 			})
+			return false
 		}
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
@@ -44,6 +37,22 @@ export class HomeService {
 			.pipe(map(data => data))
 			.subscribe(data => {
 				console.log(data);
+			this.showNotates()
+			})
+
+		return false
+	}
+
+	showNotates() {
+		let headers = new HttpHeaders()
+		headers.append('Content-Type', 'application/json')
+		this.http.get(`http://localhost:5000/user/fetch/notate?_id=${'6339e6da1fb0804a710270ad'}`)
+			.pipe(map((data: any) =>
+				data
+			))
+			.subscribe(data => {
+				console.log(data);
+				this.arturka = data
 			})
 	}
 }

@@ -24,13 +24,6 @@ export class RegestrationService {
 			})
 			return false
 		}
-		if (newUser.login == '' || newUser.login == undefined) {
-			this.fm.show('Enter your login', {
-				cssClass: 'custom-danger',
-				timeout: 3000
-			})
-			return false
-		}
 		if (newUser.password == '' || newUser.password == undefined) {
 			this.fm.show('Enter your password', {
 				cssClass: 'custom-danger',
@@ -44,6 +37,7 @@ export class RegestrationService {
 			this.http.post('http://localhost:5000/user/reg', newUser, { headers: headers })
 				.pipe(map(data => data))
 				.subscribe((data: any) => {
+					console.log(data);
 					if (data.status == true){
 						this.fm.show(data.msg, {
 							cssClass: 'custom-success',

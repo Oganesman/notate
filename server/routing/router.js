@@ -19,26 +19,30 @@ router.post('/reg', async (req, res) => {
 	// 	else
 	// 		res.json({ status: true, msg: "Your registartion success" })
 	// })
-	const { name, email, login, password } = req.body
-	const isSigned = await usersSchema.findOne({ login })
+	const {name, email, password} = req.body
+	const isSigned = await usersSchema.findOne({email})
 	if (isSigned) {
-		res.status(501).json('Exist')
+		res.json({ status: false, msg: "Such user already exists" })
 	}
 	else {
-		res.status(200).json(req.body)
-		usersSchema.create(
+		let newUser = new usersSchema({
 			name,
 			email,
-			login,
 			password
-		)
+		})
+		usersSchema.addUser(newUser, (err, user) => {
+			if (err)
+				res.json({ status: false, msg: "Sorry not correct registration" })
+			else
+				res.json({ status: true, msg: "Your registartion success" })
+		})
 	}
 })
 
 
 router.post('/auth', (req, res) => {
-	const { login, password } = req.body
-	usersSchema.getLogin(login, (err, user) => {
+	const { email, password } = req.body
+	usersSchema.getEmail(email, (err, user) => {
 		if (err) throw err
 		if (!user)
 			return res.json({ status: false, msg: 'User not found' })
@@ -56,7 +60,6 @@ router.post('/auth', (req, res) => {
 						user: {
 							name: user.name,
 							email: user.email,
-							login: user.login,
 							password: user.password,
 						}
 					})
@@ -73,15 +76,15 @@ router.get('/dashboard', passport.authenticate('jwt', { session: false }), (req,
 })
 
 
-router.get('/fetch/notate', async(req,res)=>{
-	try{
-		const abc = req.query
-		console.log(abc);
+router.get('/fetch/notate', async (req, res) => {
+	try {
+		const _id = req.query
+		console.log(_id);
 		const data = await notateSchema.find({
-			'author': abc
+			'author': _id
 		})
 		res.status(200).json(data)
-	}catch(err){
+	} catch (err) {
 		return res.status(500).json(err)
 	}
 })
@@ -102,15 +105,15 @@ router.post('/create/notate', (req, res) => {
 	})
 })
 
-
-router.get('/fetch/notates', async (req, res) => {
-	try {
-		const data = await notateSchema.find()
-		res.json(data)
-	} catch (err) {
-		return res.status(500).json(err)
-	}
-})
+//all notates
+// router.get('/fetch/notates', async (req, res) => {
+// 	try {
+// 		const data = await notateSchema.find()
+// 		res.json(data)
+// 	} catch (err) {
+// 		return res.status(500).json(err)
+// 	}
+// })
 
 
 

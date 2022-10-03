@@ -15,8 +15,8 @@ export class AuthorizationService {
 	constructor(private http: HttpClient, private router: Router, private fm: FlashMessagesService) { }
 
 	checkAuthParam(authUser: any) {
-		if (authUser.login == undefined || authUser.login == '') {
-			this.fm.show('Invalid Login', {
+		if (authUser.email == undefined || authUser.email == '') {
+			this.fm.show('Invalid email', {
 				cssClass: 'custom-danger',
 				timeout: 3000
 			})

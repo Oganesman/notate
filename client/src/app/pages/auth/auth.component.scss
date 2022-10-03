@@ -1,15 +1,20 @@
-.divider:after,
-.divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background: #eee;
+@import "../../../media.scss";
+
+.image {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	height: 300px;
 }
-.h-custom {
-height: calc(100% - 73px);
+
+.mx-md-5 {
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
-@media (max-width: 450px) {
-.h-custom {
-height: 100%;
-}
+.card {
+	box-shadow: 0 4px 10px #92a9c0;
+	width: 75%;
+	border-radius: 15px;
 }

@@ -10,12 +10,12 @@ export class AuthComponent implements OnInit {
 
 	constructor(private as: AuthorizationService) { }
 
-	login:any
+	email: any
 	password: any
 
-	authorization(){
+	authorization() {
 		let authUser = {
-			login: this.login,
+			email: this.email,
 			password: this.password,
 		}
 		this.as.checkAuthParam(authUser)

@@ -12,17 +12,17 @@ export class RegComponent implements OnInit {
 
 	name: any
 	email: any
-	login: any
 	password: any
 
 	regestration() {
 		let newUser = {
 			name: this.name,
 			email: this.email,
-			login: this.login,
 			password: this.password,
 		}
 		this.rs.checkParametrs(newUser)
+		console.log(newUser);
+		
 		return false
 	}
 	ngOnInit(): void {

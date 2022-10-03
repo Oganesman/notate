@@ -6,9 +6,6 @@ const UserSchema = mongoose.Schema({
 		type: String
 	},
 	email: {
-		type: String
-	},
-	login: {
 		type: String,
 		require: true
 	},
@@ -20,9 +17,14 @@ const UserSchema = mongoose.Schema({
 
 const User = module.exports = mongoose.model('User', UserSchema)
 
-module.exports.getLogin = function (login, cb) {
-	const userLogin = { login: login }
-	User.findOne(userLogin, cb)
+// module.exports.getLogin = function (login, cb) {
+// 	const userLogin = { login: login }
+// 	User.findOne(userLogin, cb)
+// }
+
+module.exports.getEmail = function (email, cb) {
+	const userEmail = { email: email }
+	User.findOne(userEmail,cb)
 }
 
 module.exports.getId = function (id, cb) {

@@ -75,7 +75,7 @@
 					<input [(ngModel)]="description" name="description" type="text" placeholder="Notate...">
 					<button (click)="createNotates()">create</button>
 
-					<span *ngFor="let archs of hs.arturka">{{archs}}</span>
+					<div *ngFor="let archs of hs.arturka">{{archs | json}}</div>
 				</div>
 			</main>
 		</div>
