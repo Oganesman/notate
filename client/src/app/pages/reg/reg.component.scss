@@ -1,9 +1,15 @@
-.vh-tablet{
+@import "../../../media.scss";
+
+.vh-tablet {
 	height: 100vh;
 }
-@media (max-width: 991px){
-	.vh-tablet{
-		height: 100%;
+.image-width {
+	@include w_991 {
+		width: 50%;
+	}
+}
+@media (max-width: 991px) {
+	.vh-tablet {
 		padding: 20px 0;
 	}
 }
