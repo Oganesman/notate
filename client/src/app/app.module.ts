@@ -13,6 +13,7 @@ import { FlashMessagesModule } from 'flash-messages-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticateGuard } from './service/authenticate.guard';
 import { LoggoutModalComponent } from './modals/loggout-modal/loggout-modal.component';
+import { HeaderComponent } from './pages/home/header/header.component';
 
 
 const routers: Routes = [
@@ -29,7 +30,8 @@ const routers: Routes = [
 		RegComponent,
 		AuthComponent,
 		DashboardComponent,
-		LoggoutModalComponent
+		LoggoutModalComponent,
+  HeaderComponent
 	],
 	imports: [
 		BrowserModule,

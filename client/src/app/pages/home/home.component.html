@@ -5,39 +5,9 @@
 
 		<div class="content">
 			<!-- ? HEADER -->
-			<header class="content-header">
-				<div class="content-burger">
-					<button class="content-burger__button icon">
-						<img src="assets/header/burger.svg" alt="Burger">
-					</button>
-					<a href="#" class="content-burger__logo">
-						<img src="assets/header/logo.png" alt="Logo">
-						<span>Keep</span>
-					</a>
-				</div>
-				<div class="content-search">
-					<form class="content-form">
-						<button class="content-search__img content-search__start">
-							<img src="assets/header/loop.svg" alt="">
-						</button>
-						<input class="content-search__input" type="text" placeholder="Поиск">
-						<button class="content-search__img content-search__end">
-							<img src="assets/header/cross.svg" alt="">
-						</button>
-					</form>
-					<!-- <div class="content-icons">
-						<button class="bg-gray icon none"><img src="assets/header/ref.svg" alt=""></button>
-						<button class="bg-gray icon none"><img src="assets/header/status.svg" alt=""></button>
-						<button class="bg-gray icon none"><img src="assets/header/sett.svg" alt=""></button>
-					</div> -->
-				</div>
-				<div class="content-settings">
-					<!-- <button class="bg-gray icon none"><img src="assets/header/service.svg" alt=""></button> -->
-					<div>{{this.myUser.name}}</div>
-					<button class="bg-gray icon" (click)="hs.showLoggoutModal = true"><img src="assets/header/avatar.svg"
-							alt=""></button>
-				</div>
-			</header>
+			<home-header class="content-header" [userName]="myUser.name" [modal]="hs.showLoggoutModal" (showModalOutput)="hs.showLoggoutModal = $event"></home-header>
+			
+			
 			<!-- ? SIDEBAR -->
 			<aside class="content-aside">
 				<nav class="nav">
