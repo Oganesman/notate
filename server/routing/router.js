@@ -1,6 +1,7 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const passport = require('passport')
+
 const router = express.Router()
 const usersSchema = require('../mongoDB/users-schema')
 const notateSchema = require('../mongoDB/notates-schema')
@@ -42,6 +43,9 @@ router.post('/reg', async (req, res) => {
 
 router.post('/auth', (req, res) => {
 	const { email, password } = req.body
+	// const user = usersSchema.findOne({email:email})
+	// const { _id } = db.collection("users").findOne({email:email})
+	// console.log(_id);
 	usersSchema.getEmail(email, (err, user) => {
 		if (err) throw err
 		if (!user)
@@ -61,6 +65,7 @@ router.post('/auth', (req, res) => {
 							name: user.name,
 							email: user.email,
 							password: user.password,
+							id: user._id.toString()
 						}
 					})
 				}
@@ -79,7 +84,6 @@ router.get('/dashboard', passport.authenticate('jwt', { session: false }), (req,
 router.get('/fetch/notate', async (req, res) => {
 	try {
 		const _id = req.query
-		console.log(_id);
 		const data = await notateSchema.find({
 			'author': _id
 		})
@@ -91,7 +95,6 @@ router.get('/fetch/notate', async (req, res) => {
 
 router.post('/create/notate', (req, res) => {
 	const { title, description, author } = req.body;
-	console.log(req.query);
 	const newNotate = new notateSchema({
 		title,
 		description,

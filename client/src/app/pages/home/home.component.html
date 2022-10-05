@@ -25,15 +25,17 @@
 							<img src="assets/header/cross.svg" alt="">
 						</button>
 					</form>
-					<div class="content-icons">
+					<!-- <div class="content-icons">
 						<button class="bg-gray icon none"><img src="assets/header/ref.svg" alt=""></button>
 						<button class="bg-gray icon none"><img src="assets/header/status.svg" alt=""></button>
 						<button class="bg-gray icon none"><img src="assets/header/sett.svg" alt=""></button>
-					</div>
+					</div> -->
 				</div>
 				<div class="content-settings">
-					<button class="bg-gray icon none"><img src="assets/header/service.svg" alt=""></button>
-					<button class="bg-gray icon" (click)="hs.showLoggoutModal = true"><img src="assets/header/avatar.svg" alt=""></button>
+					<!-- <button class="bg-gray icon none"><img src="assets/header/service.svg" alt=""></button> -->
+					<div>{{this.myUser.name}}</div>
+					<button class="bg-gray icon" (click)="hs.showLoggoutModal = true"><img src="assets/header/avatar.svg"
+							alt=""></button>
 				</div>
 			</header>
 			<!-- ? SIDEBAR -->
@@ -74,8 +76,10 @@
 					<input [(ngModel)]="title" name="title" type="text" placeholder="Title">
 					<input [(ngModel)]="description" name="description" type="text" placeholder="Notate...">
 					<button (click)="createNotates()">create</button>
-
-					<div *ngFor="let archs of hs.arturka">{{archs | json}}</div>
+					<div *ngFor="let notate of hs.userNotates">
+						<span>{{notate.title}} </span>
+						<span>{{notate.description}}</span>
+					</div>
 				</div>
 			</main>
 		</div>

@@ -35,6 +35,8 @@ export class AuthorizationService {
 			this.http.post('http://localhost:5000/user/auth', authUser, { headers: headers })
 				.pipe(map(data => data))
 				.subscribe((data: any) => {
+					console.log(data);
+					
 					if (data.status == false) {
 						this.fm.show(data.msg, {
 							cssClass: 'custom-danger',
@@ -46,7 +48,7 @@ export class AuthorizationService {
 							timeout: 3000
 						})
 						localStorage.setItem('token', data.token)
-						localStorage.setItem('user', data.user)
+						localStorage.setItem('user', JSON.stringify(data.user))
 						this.token = data.token
 						this.user = data.user
 						this.router.navigate(['/'])
