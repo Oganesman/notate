@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthenticateGuard } from './service/authenticate.guard';
 import { LoggoutModalComponent } from './modals/loggout-modal/loggout-modal.component';
 import { HeaderComponent } from './pages/home/header/header.component';
+import { SidebarComponent } from './pages/home/sidebar/sidebar.component';
 
 
 const routers: Routes = [
@@ -31,7 +32,8 @@ const routers: Routes = [
 		AuthComponent,
 		DashboardComponent,
 		LoggoutModalComponent,
-  HeaderComponent
+  HeaderComponent,
+  SidebarComponent
 	],
 	imports: [
 		BrowserModule,
