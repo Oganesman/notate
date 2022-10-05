@@ -1,0 +1,13 @@
+<main class="content">
+	<div class="main-block">
+		<!-- title -->
+		<input [(ngModel)]="title" name="title" type="text" placeholder="Title">
+		<!-- description -->
+		<input [(ngModel)]="description" name="description" type="text" placeholder="Notate...">
+		<button (click)="createNotates()">create</button>
+		<div class="notate" *ngFor="let notate of userNotates">
+			<div class="notate__title">{{notate.title}} </div>
+			<div class="notate__description">{{notate.description}}</div>
+		</div>
+	</div>
+</main>

@@ -1,0 +1,74 @@
+@import "../../../../media.scss";
+
+.content {
+	@include w_1350 {
+		height: calc(100vh - 65px);
+		border-right: 1px solid #d5c4c4;
+	}
+}
+.main-block {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	max-width: 600px;
+	margin: 32px auto 16px;
+	input {
+		height: 46px;
+		width: 100%;
+		border: none;
+		border-radius: 8px;
+		border: 1px solid #dedede;
+		padding-left: 15px;
+		color: #202124;
+		&:focus-visible {
+			outline: none;
+			box-shadow: 0 1px 1px 0 rgba(65, 69, 73, 0.3), 0 1px 3px 1px rgba(65, 69, 73, 0.15);
+		}
+		&::placeholder {
+			color: rgb(66, 66, 66);
+			font-family: Arial, sans-serif;
+		}
+	}
+}
+
+.main-block__button {
+	background: #51a3b8;
+	font-size: 15px;
+	color: white;
+	border-radius: 7px;
+	box-shadow: 0 7px 0px #387796;
+	display: inline-block;
+	transition: all 0.2s;
+	position: relative;
+	padding: 10px 30px;
+	position: relative;
+	top: 0;
+	cursor: pointer;
+	margin: 10px 20px;
+	&:active {
+		top: 3px;
+		box-shadow: 0 2px 0px #387796;
+		transition: all 0.2s;
+	}
+}
+
+// Notate
+.notate{
+	padding: 12px 16px;
+	max-width: 240px;
+	width: 100%;
+	min-height: 110px;
+	border-radius: 20px;
+	border: 1px solid rgb(219, 218, 218);
+	text-align: left;
+	margin: 16px;
+}
+
+.notate__title{
+	font-size: 16px;
+	font-weight: 700;
+	margin: 0 0 5px;
+}
+.notate__description{
+	font-size: 14px;
+}

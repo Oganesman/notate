@@ -44,7 +44,6 @@ export class HomeService {
 		this.http.post('http://localhost:5000/user/create/notate', newNotate, { headers: headers })
 			.pipe(map(data => data))
 			.subscribe(data => {
-				console.log(data);
 			this.showNotates(newNotate.author)
 			})
 		return false
@@ -58,7 +57,6 @@ export class HomeService {
 				data
 			))
 			.subscribe(data => {
-				console.log(data);
 				this.userNotates = data
 			})
 	}

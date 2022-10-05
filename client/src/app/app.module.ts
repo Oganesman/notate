@@ -15,6 +15,7 @@ import { AuthenticateGuard } from './service/authenticate.guard';
 import { LoggoutModalComponent } from './modals/loggout-modal/loggout-modal.component';
 import { HeaderComponent } from './pages/home/header/header.component';
 import { SidebarComponent } from './pages/home/sidebar/sidebar.component';
+import { MainComponent } from './pages/home/main/main.component';
 
 
 const routers: Routes = [
@@ -33,7 +34,8 @@ const routers: Routes = [
 		DashboardComponent,
 		LoggoutModalComponent,
   HeaderComponent,
-  SidebarComponent
+  SidebarComponent,
+  MainComponent
 	],
 	imports: [
 		BrowserModule,

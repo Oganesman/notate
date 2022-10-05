@@ -5,21 +5,13 @@
 	<div class="page">
 		<div class="content">
 			<!-- ? HEADER -->
-			<home-header class="content-header" [userName]="myUser.name" [modal]="hs.showLoggoutModal" (showModalOutput)="hs.showLoggoutModal = $event"></home-header>
+			<home-header class="content-header" [userName]="myUser.name" [modal]="hs.showLoggoutModal"
+				(showModalOutput)="hs.showLoggoutModal = $event"></home-header>
 			<!-- ? SIDEBAR -->
 			<home-sidebar class="content-aside"></home-sidebar>
 			<!-- ?Main -->
-			<main class="content-main">
-				<div class="main-block">
-					<input [(ngModel)]="title" name="title" type="text" placeholder="Title">
-					<input [(ngModel)]="description" name="description" type="text" placeholder="Notate...">
-					<button (click)="createNotates()">create</button>
-					<div *ngFor="let notate of hs.userNotates">
-						<span>{{notate.title}} </span>
-						<span>{{notate.description}}</span>
-					</div>
-				</div>
-			</main>
+			<home-main [title]="title" [description]="description" [userNotates]="hs.userNotates" [myUser]="myUser">
+			</home-main>
 		</div>
 	</div>
 </div>
