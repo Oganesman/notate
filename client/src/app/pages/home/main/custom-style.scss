@@ -1,0 +1,19 @@
+// remove underline
+::ng-deep .mat-form-field-underline {
+	display: none;
+}
+//block
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+	background: transparent;
+}
+//padding
+::ng-deep .mat-form-field-wrapper {
+	padding: 0 !important;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+	padding: 1px 2px 1px 15px !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+	padding: 0 0 0.75em 0 !important;
+}

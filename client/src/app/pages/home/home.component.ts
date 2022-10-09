@@ -16,5 +16,4 @@ export class HomeComponent {
 		this.myUser = JSON.parse(localStorage.getItem('user') || '{}')
 		this.hs.showNotates(this.myUser.id)
 	}
-
 }

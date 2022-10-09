@@ -1,6 +1,5 @@
-import { Component, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HomeService } from 'src/app/service/home/home.service';
-import { AutofillMonitor } from '@angular/cdk/text-field';
 
 @Component({
 	selector: 'home-main',
@@ -8,17 +7,13 @@ import { AutofillMonitor } from '@angular/cdk/text-field';
 	styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-	//material
-	// @ViewChild('first', { read: ElementRef }) firstName: ElementRef<HTMLElement>;
-	// firstNameAutofilled: boolean;
-
 	@Input() userNotates: any
 	@Input() title: any
 	@Input() description: any
 	@Input() myUser: any
 
 
-	constructor(private hs: HomeService, private _autofill: AutofillMonitor) {
+	constructor(public hs: HomeService) {
 	}
 
 	createNotates() {
@@ -32,13 +27,7 @@ export class MainComponent {
 		this.description = ''
 	}
 
-	//material 
-	// ngAfterViewInit() {
-	// 	this._autofill
-	// 		.monitor(this.firstName)
-	// 		.subscribe(e => (this.firstNameAutofilled = e.isAutofilled));
-	// }
-	// ngOnDestroy() {
-	// 	this._autofill.stopMonitoring(this.firstName);
-	// }
+
+
+
 }

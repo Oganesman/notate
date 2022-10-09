@@ -1,20 +1,23 @@
 <main class="content">
 	<div class="main-block">
-		<button (click)="createNotates()">create</button>
-		<div class="main__write">
-			<!-- title -->
-			<input [(ngModel)]="title" name="title" type="text" placeholder="Title">
-			<!-- description -->
-			<!-- <div  [(ngModel)]="description" name="description" placeholder="Notate..." role="textbox" contenteditable="true" aria-multiline="true">Notate...</div> -->
+		<!-- <button (click)="createNotates()">create</button> -->
+		<div class="main-write">
+			<div class="main-write__container" [class.writeNotate]="!hs.writing">
+				<!-- title -->
+				<mat-form-field  class="main-write__field" 
+				 appearance="fill">
+					<textarea [(ngModel)]="title" name="title" placeholder="Title" class="main-write__textarea" matInput
+						cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+						cdkAutosizeMaxRows="26"></textarea>
+				</mat-form-field>
+				<!-- description -->
+				<mat-form-field class="main-write__field" appearance="fill">
+					<textarea class="main-write__textarea" [(ngModel)]="description" name="description"
+						placeholder="Notate..." matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+						cdkAutosizeMinRows="1" cdkAutosizeMaxRows="26"></textarea>
+				</mat-form-field>
+			</div>
 
-
-			<mat-form-field appearance="fill">
-				<textarea [(ngModel)]="description" name="description" placeholder="Notate..." matInput cdkTextareaAutosize
-					#autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="26"></textarea>
-			</mat-form-field>
-
-
-			<!-- <textarea></textarea> -->
 		</div>
 
 		<div class="main__info">

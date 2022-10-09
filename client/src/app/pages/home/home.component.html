@@ -1,7 +1,7 @@
 <!-- modal -->
 <app-loggout-modal *ngIf="hs.showLoggoutModal"></app-loggout-modal>
 <!-- home page -->
-<div class="wrapper">
+<div class="wrapper" (click)="hs.clickOutside($event)">
 	<div class="page">
 		<div class="content">
 			<!-- ? HEADER -->

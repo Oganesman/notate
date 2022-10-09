@@ -11,11 +11,11 @@ export class HomeService {
 	showLoggoutModal: boolean = false
 	//show notates ngFor
 	public userNotates: any
+	// click outside
+	public writing: boolean = false;
 
 	constructor(private http: HttpClient, private fm: FlashMessagesService) {
-		
 	}
-	// .filter((el: any) => { return el.author === '6339e6da1fb0804a710270ad' })
 
 	createNotateApi(newNotate: any) {
 		if (newNotate.title == '' && newNotate.description == '' || newNotate.title == undefined && newNotate.description == undefined) {
@@ -44,12 +44,12 @@ export class HomeService {
 		this.http.post('http://localhost:5000/user/create/notate', newNotate, { headers: headers })
 			.pipe(map(data => data))
 			.subscribe(data => {
-			this.showNotates(newNotate.author)
+				this.showNotates(newNotate.author)
 			})
 		return false
 	}
 
-	showNotates(author:String) {
+	showNotates(author: String) {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
 		this.http.get(`http://localhost:5000/user/fetch/notate?_id=${author}`)
@@ -59,5 +59,21 @@ export class HomeService {
 			.subscribe(data => {
 				this.userNotates = data
 			})
+	}
+
+	//click Outside
+	clickOutside(event: any) {
+		if (
+			event.target.classList.contains('main-write__container') ||
+			event.target.classList.contains('ng-pristine') ||
+			event.target.classList.contains('mat-form-field-infix') ||
+			event.target.classList.contains('ng-tns-c75-0') ||
+			event.target.classList.contains('mat-form-field-flex') ||
+			event.target.classList.contains('cdk-textarea-autosize')
+		) {
+			return this.writing = true
+		} else {
+			return this.writing = false
+		}
 	}
 }
