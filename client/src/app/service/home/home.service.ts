@@ -13,6 +13,10 @@ export class HomeService {
 	public userNotates: any
 	// click outside
 	public writing: boolean = false;
+	//create notate
+	public title: string = ''
+	public description: string = ''
+	public myUser: any
 
 	constructor(private http: HttpClient, private fm: FlashMessagesService) {
 	}
@@ -44,15 +48,15 @@ export class HomeService {
 		this.http.post('http://localhost:5000/user/create/notate', newNotate, { headers: headers })
 			.pipe(map(data => data))
 			.subscribe(data => {
-				this.showNotates(newNotate.author)
+				this.showNotates()
 			})
 		return false
 	}
 
-	showNotates(author: String) {
+	showNotates() {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
-		this.http.get(`http://localhost:5000/user/fetch/notate?_id=${author}`)
+		this.http.get(`http://localhost:5000/user/fetch/notate?_id=${this.myUser.id}`)
 			.pipe(map((data: any) =>
 				data
 			))
@@ -61,7 +65,19 @@ export class HomeService {
 			})
 	}
 
-	//click Outside
+	// create notate
+	createNotates() {
+		const newNotate = {
+			title: this.title,
+			description: this.description,
+			author: this.myUser.id
+		}
+		this.createNotateApi(newNotate)
+		this.title = ''
+		this.description = ''
+	}
+
+	//click Outside and create notate
 	clickOutside(event: any) {
 		if (
 			event.target.classList.contains('main-write__container') ||
@@ -72,8 +88,12 @@ export class HomeService {
 			event.target.classList.contains('cdk-textarea-autosize')
 		) {
 			return this.writing = true
-		} else {
+		} else if (this.title == '' && this.description == '') {
 			return this.writing = false
+		} else {
+			this.writing = false
+			return this.createNotates()
 		}
 	}
 }
+

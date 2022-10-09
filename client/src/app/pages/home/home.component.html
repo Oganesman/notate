@@ -5,13 +5,12 @@
 	<div class="page">
 		<div class="content">
 			<!-- ? HEADER -->
-			<home-header class="content-header" [userName]="myUser.name" [modal]="hs.showLoggoutModal"
+			<home-header class="content-header" [userName]="hs.myUser.name" [modal]="hs.showLoggoutModal"
 				(showModalOutput)="hs.showLoggoutModal = $event"></home-header>
 			<!-- ? SIDEBAR -->
 			<home-sidebar class="content-aside"></home-sidebar>
 			<!-- ?Main -->
-			<home-main [title]="title" [description]="description" [userNotates]="hs.userNotates" [myUser]="myUser">
-			</home-main>
+			<home-main></home-main>
 		</div>
 	</div>
 </div>

@@ -6,13 +6,13 @@
 				<!-- title -->
 				<mat-form-field  class="main-write__field" 
 				 appearance="fill">
-					<textarea [(ngModel)]="title" name="title" placeholder="Title" class="main-write__textarea" matInput
+					<textarea [(ngModel)]="hs.title" name="title" placeholder="Title" class="main-write__textarea" matInput
 						cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
 						cdkAutosizeMaxRows="26"></textarea>
 				</mat-form-field>
 				<!-- description -->
 				<mat-form-field class="main-write__field" appearance="fill">
-					<textarea class="main-write__textarea" [(ngModel)]="description" name="description"
+					<textarea class="main-write__textarea" [(ngModel)]="hs.description" name="description"
 						placeholder="Notate..." matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
 						cdkAutosizeMinRows="1" cdkAutosizeMaxRows="26"></textarea>
 				</mat-form-field>
@@ -22,7 +22,7 @@
 
 		<div class="main__info">
 
-			<div class="notate" *ngFor="let notate of userNotates">
+			<div class="notate" *ngFor="let notate of hs.userNotates">
 				<div class="notate__title">{{notate.title}} </div>
 				<div class="notate__description">{{notate.description}}</div>
 			</div>
