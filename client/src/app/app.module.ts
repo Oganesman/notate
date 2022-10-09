@@ -16,6 +16,9 @@ import { LoggoutModalComponent } from './modals/loggout-modal/loggout-modal.comp
 import { HeaderComponent } from './pages/home/header/header.component';
 import { SidebarComponent } from './pages/home/sidebar/sidebar.component';
 import { MainComponent } from './pages/home/main/main.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 const routers: Routes = [
@@ -25,6 +28,14 @@ const routers: Routes = [
 	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticateGuard] },
 ]
 
+
+// const modules = [
+// 	MatButtonModule,
+// 	MatFormFieldModule,
+// 	MatInputModule,
+// 	MatRippleModule
+// ];
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -33,9 +44,9 @@ const routers: Routes = [
 		AuthComponent,
 		DashboardComponent,
 		LoggoutModalComponent,
-  HeaderComponent,
-  SidebarComponent,
-  MainComponent
+		HeaderComponent,
+		SidebarComponent,
+		MainComponent
 	],
 	imports: [
 		BrowserModule,
@@ -44,6 +55,9 @@ const routers: Routes = [
 		RouterModule.forRoot(routers),
 		FormsModule,
 		FlashMessagesModule.forRoot(),
+		BrowserAnimationsModule,
+		MatFormFieldModule,
+		MatInputModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
