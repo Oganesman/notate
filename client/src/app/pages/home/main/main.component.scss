@@ -4,24 +4,16 @@
 .content {
 	@include w_1350 {
 		height: calc(100vh - 65px);
-		border-right: 1px solid #d5c4c4;
 	}
 }
-
-.main-block {
-}
-
-// write
+// !INPUT
 .main-write {
 	width: 100%;
 	max-width: 600px;
-	margin: 32px auto 16px;
+	margin: 32px auto 32px;
 	border: 1px solid #dedede;
 	box-shadow: 0 1px 1px 0 rgba(65, 69, 73, 0.3), 0 1px 3px 1px rgba(65, 69, 73, 0.15);
 	border-radius: 8px;
-}
-.main-write__container {
-	
 }
 // textarea
 .main-write__field {
@@ -41,11 +33,25 @@
 	}
 }
 
-// Notate
-.main__info {
+// !BOX NOTATE
+.main-notate {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	// gap: 16px;
+	flex-wrap: wrap-reverse;
+	width: 1040px;
+	margin: 0 auto 16px auto;
+
+	& > .notate__item {
+		direction: ltr;
+	}
+	&,
+	& > .notate__item {
+		transform: rotate(180deg);
+	}
 }
 
-.notate {
+.notate__item {
 	padding: 12px 16px;
 	max-width: 240px;
 	width: 100%;
@@ -53,15 +59,34 @@
 	border-radius: 20px;
 	border: 1px solid rgb(219, 218, 218);
 	text-align: left;
-	margin: 16px;
+	margin: 8px;
+	background-image: paint(randomBackground);
+	color: #fff;
+
+	& {
+		$num-colors: 100;
+		$base-color: #996b4d;
+		$spectrum: 360deg;
+		$offset: 50deg;
+	
+		@for $i from 0 to $num-colors {
+			&:nth-child(#{$i}) {
+				@include random-bgr();
+			}
+		}
+	}
 }
 
 .notate__title {
 	font-size: 16px;
 	font-weight: 700;
 	margin: 0 0 5px;
+	letter-spacing: 2px;
 }
 
 .notate__description {
 	font-size: 14px;
+	margin: 0 0 25px;
 }
+
+

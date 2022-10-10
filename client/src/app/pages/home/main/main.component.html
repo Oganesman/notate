@@ -1,11 +1,10 @@
 <main class="content">
 	<div class="main-block">
-		<!-- <button (click)="createNotates()">create</button> -->
+		<!-- !INPUT -->
 		<div class="main-write">
 			<div class="main-write__container" [class.writeNotate]="!hs.writing">
 				<!-- title -->
-				<mat-form-field  class="main-write__field" 
-				 appearance="fill">
+				<mat-form-field class="main-write__field" appearance="fill">
 					<textarea [(ngModel)]="hs.title" name="title" placeholder="Title" class="main-write__textarea" matInput
 						cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
 						cdkAutosizeMaxRows="26"></textarea>
@@ -17,17 +16,15 @@
 						cdkAutosizeMinRows="1" cdkAutosizeMaxRows="26"></textarea>
 				</mat-form-field>
 			</div>
-
 		</div>
 
-		<div class="main__info">
-
-			<div class="notate" *ngFor="let notate of hs.userNotates">
+		<!-- !BOX NOTATE -->
+		<div class="main-notate notate">
+			<div (click)="biba(notate._id)" class="notate__item" *ngFor="let notate of hs.userNotates">
 				<div class="notate__title">{{notate.title}} </div>
 				<div class="notate__description">{{notate.description}}</div>
 			</div>
 		</div>
-
 
 	</div>
 </main>

@@ -9,7 +9,7 @@ const NotatesSchema = mongoose.Schema({
 	},
 	author: {
 		type: String
-	}
+	},
 })
 
 const Notate = module.exports = mongoose.model('Notate', NotatesSchema)

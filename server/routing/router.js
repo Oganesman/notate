@@ -20,8 +20,8 @@ router.post('/reg', async (req, res) => {
 	// 	else
 	// 		res.json({ status: true, msg: "Your registartion success" })
 	// })
-	const {name, email, password} = req.body
-	const isSigned = await usersSchema.findOne({email})
+	const { name, email, password } = req.body
+	const isSigned = await usersSchema.findOne({ email })
 	if (isSigned) {
 		res.json({ status: false, msg: "Such user already exists" })
 	}
@@ -80,7 +80,23 @@ router.get('/dashboard', passport.authenticate('jwt', { session: false }), (req,
 	res.send('dashboard')
 })
 
+// create notate
+router.post('/create/notate', (req, res) => {
+	const { title, description, author } = req.body;
+	const newNotate = new notateSchema({
+		title,
+		description,
+		author,
+	})
+	notateSchema.newNotate(newNotate, (err, notate) => {
+		if (err)
+			res.json({ status: false, msg: 'Notate not create' })
+		else
+			res.json({ status: true, msg: 'Notate success create' })
+	})
+})
 
+// show notate
 router.get('/fetch/notate', async (req, res) => {
 	try {
 		const _id = req.query
@@ -93,19 +109,17 @@ router.get('/fetch/notate', async (req, res) => {
 	}
 })
 
-router.post('/create/notate', (req, res) => {
-	const { title, description, author } = req.body;
-	const newNotate = new notateSchema({
-		title,
-		description,
-		author
-	})
-	notateSchema.newNotate(newNotate, (err, notate) => {
-		if (err)
-			res.json({ status: false, msg: 'Notate not create' })
-		else
-			res.json({ status: true, msg: 'Notate success create' })
-	})
+router.delete('/notate/update', async (req, res) => {
+	try{
+		const _id = req.query
+		const del = await notateSchema.findOneAndDelete({_id: _id})
+		console.log(_id);
+		console.log(del);
+		res.status(500).json('success')
+	}catch(err){
+		return res.status(500).json(err)
+	}
+	
 })
 
 //all notates

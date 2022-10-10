@@ -29,20 +29,6 @@ export class HomeService {
 			})
 			return false
 		}
-		// if (newNotate.title == '' || newNotate.title == undefined) {
-		// 	this.fm.show('Enter note title', {
-		// 		cssClass: 'custom-danger',
-		// 		timeout: 3000
-		// 	})
-		// 	return false
-		// }
-		// if (newNotate.description == '' || newNotate.description == undefined) {
-		// 	this.fm.show('Enter note description', {
-		// 		cssClass: 'custom-danger',
-		// 		timeout: 3000
-		// 	})
-		// 	return false
-		// }
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
 		this.http.post('http://localhost:5000/user/create/notate', newNotate, { headers: headers })
@@ -61,6 +47,8 @@ export class HomeService {
 				data
 			))
 			.subscribe(data => {
+				console.log(data);
+				
 				this.userNotates = data
 			})
 	}
