@@ -20,7 +20,7 @@
 
 		<!-- !BOX NOTATE -->
 		<div class="main-notate notate">
-			<div (click)="biba(notate._id)" class="notate__item" *ngFor="let notate of hs.userNotates">
+			<div class="notate__item" (click)="hs.notateEdit(notate)" *ngFor="let notate of hs.userNotates">
 				<div class="notate__title">{{notate.title}} </div>
 				<div class="notate__description">{{notate.description}}</div>
 			</div>

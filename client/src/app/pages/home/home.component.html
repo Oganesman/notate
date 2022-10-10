@@ -1,5 +1,7 @@
 <!-- modal -->
 <app-loggout-modal *ngIf="hs.showLoggoutModal"></app-loggout-modal>
+<notate-edit (click)="showEdit($event)" *ngIf="hs.showEditModal"></notate-edit>
+
 <!-- home page -->
 <div class="wrapper" (click)="hs.clickOutside($event)">
 	<div class="page">

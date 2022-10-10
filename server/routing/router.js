@@ -109,17 +109,30 @@ router.get('/fetch/notate', async (req, res) => {
 	}
 })
 
-router.delete('/notate/update', async (req, res) => {
-	try{
+//update
+router.put('/notate/edit', async (req, res) => {
+	try {
+		const {title, description, id} = req.body
+		await notateSchema.updateOne({_id: id}, {$set:{
+			title: title,
+			description:description
+		}})
+		res.status(200).json('item success updated')
+	} catch (err) {
+		res.status(500).json(err)
+	}
+})
+
+// delete
+router.delete('/notate/delete', async (req, res) => {
+	try {
 		const _id = req.query
-		const del = await notateSchema.findOneAndDelete({_id: _id})
-		console.log(_id);
-		console.log(del);
-		res.status(500).json('success')
-	}catch(err){
+		const del = await notateSchema.findOneAndDelete({ _id: _id })
+		res.status(200).json('item success deleted')
+	} catch (err) {
 		return res.status(500).json(err)
 	}
-	
+
 })
 
 //all notates

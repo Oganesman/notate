@@ -12,4 +12,14 @@ export class HomeComponent {
 		this.hs.myUser = JSON.parse(localStorage.getItem('user') || '{}')
 		this.hs.showNotates()
 	}
+
+	showEdit(e: any) {
+		if (e.target.classList.contains("ng-star-inserted")) {
+			this.hs.updateNotate()
+			return this.hs.showEditModal = !this.hs.showEditModal
+		} else {
+			return false
+		}
+	}
+
 }

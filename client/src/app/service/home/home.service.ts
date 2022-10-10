@@ -8,7 +8,9 @@ import { map } from 'rxjs';
 })
 export class HomeService {
 	//modalka
-	showLoggoutModal: boolean = false
+	showLoggoutModal: boolean = false;
+	showEditModal: boolean = false;
+	public notateInfo: any
 	//show notates ngFor
 	public userNotates: any
 	// click outside
@@ -18,39 +20,12 @@ export class HomeService {
 	public description: string = ''
 	public myUser: any
 
-	constructor(private http: HttpClient, private fm: FlashMessagesService) {
-	}
+	constructor(private http: HttpClient, private fm: FlashMessagesService) { }
 
-	createNotateApi(newNotate: any) {
-		if (newNotate.title == '' && newNotate.description == '' || newNotate.title == undefined && newNotate.description == undefined) {
-			this.fm.show('Enter note', {
-				cssClass: 'custom-danger',
-				timeout: 3000
-			})
-			return false
-		}
-		let headers = new HttpHeaders()
-		headers.append('Content-Type', 'application/json')
-		this.http.post('http://localhost:5000/user/create/notate', newNotate, { headers: headers })
-			.pipe(map(data => data))
-			.subscribe(data => {
-				this.showNotates()
-			})
-		return false
-	}
-
-	showNotates() {
-		let headers = new HttpHeaders()
-		headers.append('Content-Type', 'application/json')
-		this.http.get(`http://localhost:5000/user/fetch/notate?_id=${this.myUser.id}`)
-			.pipe(map((data: any) =>
-				data
-			))
-			.subscribe(data => {
-				console.log(data);
-				
-				this.userNotates = data
-			})
+	// modal edit notate
+	notateEdit(notate: any) {
+		this.notateInfo = notate;
+		this.showEditModal = !this.showEditModal
 	}
 
 	// create notate
@@ -63,6 +38,43 @@ export class HomeService {
 		this.createNotateApi(newNotate)
 		this.title = ''
 		this.description = ''
+	}
+
+	createNotateApi(newNotate: any) {
+		let headers = new HttpHeaders()
+		headers.append('Content-Type', 'application/json')
+		this.http.post('http://localhost:5000/user/create/notate', newNotate, { headers: headers })
+			.pipe(map(data => data))
+			.subscribe(data => {
+				this.showNotates()
+			})
+	}
+
+	// get Notate
+	showNotates() {
+		let headers = new HttpHeaders()
+		headers.append('Content-Type', 'application/json')
+		this.http.get(`http://localhost:5000/user/fetch/notate?_id=${this.myUser.id}`)
+			.pipe(map((data: any) =>
+				data
+			))
+			.subscribe(data => {
+				this.userNotates = data
+			})
+	}
+
+	// update Notate
+	updateNotate() {
+		const newEdit = {
+			title: this.notateInfo.title,
+			description: this.notateInfo.description,
+			id: this.notateInfo._id,
+		}
+		let headers = new HttpHeaders()
+		headers.append('Content-Type', 'application/json')
+		this.http.put('http://localhost:5000/user/notate/edit', newEdit, { headers: headers })
+			.pipe(map(data => data))
+			.subscribe(data => data)
 	}
 
 	//click Outside and create notate

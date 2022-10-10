@@ -19,6 +19,7 @@ import { MainComponent } from './pages/home/main/main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { NotateEditComponent } from './modals/notate-edit/notate-edit.component';
 
 
 const routers: Routes = [
@@ -46,7 +47,8 @@ const routers: Routes = [
 		LoggoutModalComponent,
 		HeaderComponent,
 		SidebarComponent,
-		MainComponent
+		MainComponent,
+  NotateEditComponent
 	],
 	imports: [
 		BrowserModule,
