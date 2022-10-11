@@ -79,13 +79,12 @@ export class HomeService {
 
 	//click Outside and create notate
 	clickOutside(event: any) {
+		console.log(event);
+		
 		if (
 			event.target.classList.contains('main-write__container') ||
-			event.target.classList.contains('ng-pristine') ||
-			event.target.classList.contains('mat-form-field-infix') ||
-			event.target.classList.contains('ng-tns-c75-0') ||
-			event.target.classList.contains('mat-form-field-flex') ||
-			event.target.classList.contains('cdk-textarea-autosize')
+			event.target.classList.contains('main-write__field') ||
+			event.target.classList.contains('pre-tag') 
 		) {
 			return this.writing = true
 		} else if (this.title == '' && this.description == '') {

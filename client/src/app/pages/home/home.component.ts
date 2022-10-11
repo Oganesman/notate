@@ -14,8 +14,11 @@ export class HomeComponent {
 	}
 
 	showEdit(e: any) {
-		if (e.target.classList.contains("ng-star-inserted")) {
+		if (e.target.classList.contains("ng-star-inserted") ||
+			e.target.localName == "notate-edit"
+		) {
 			this.hs.updateNotate()
+			document.body.style.overflow = 'auto'
 			return this.hs.showEditModal = !this.hs.showEditModal
 		} else {
 			return false

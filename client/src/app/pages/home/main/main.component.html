@@ -4,27 +4,35 @@
 		<div class="main-write">
 			<div class="main-write__container" [class.writeNotate]="!hs.writing">
 				<!-- title -->
-				<mat-form-field class="main-write__field" appearance="fill">
-					<textarea [(ngModel)]="hs.title" name="title" placeholder="Title" class="main-write__textarea" matInput
-						cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
-						cdkAutosizeMaxRows="26"></textarea>
-				</mat-form-field>
+				<div class="main-write__field ">
+					<pre class="main-write__title pre-tag" #topicTitle contenteditable="true" [textContent]="hs.title"
+						(blur)="hs.title=topicTitle.innerText" data-text="Title">
+				</pre>
+				</div>
 				<!-- description -->
-				<mat-form-field class="main-write__field" appearance="fill">
-					<textarea class="main-write__textarea" [(ngModel)]="hs.description" name="description"
-						placeholder="Notate..." matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
-						cdkAutosizeMinRows="1" cdkAutosizeMaxRows="26"></textarea>
-				</mat-form-field>
+				<div class="main-write__field">
+					<pre class="main-write__description pre-tag" #topicDescription contenteditable="true" [textContent]="hs.description"
+						(blur)="hs.description=topicDescription.innerText" data-text="Note text..">
+				</pre>
+				</div>
 			</div>
 		</div>
 
 		<!-- !BOX NOTATE -->
 		<div class="main-notate notate">
 			<div class="notate__item" (click)="hs.notateEdit(notate)" *ngFor="let notate of hs.userNotates">
-				<div class="notate__title">{{notate.title}} </div>
-				<div class="notate__description">{{notate.description}}</div>
+				<!-- title -->
+				<div class="notate__title">
+					{{notate.title}} 
+				</div>
+				<!-- title -->
+				<div class="notate__description">
+					{{notate.description}}
+				</div>
 			</div>
 		</div>
+
+		<pre>asdassa</pre>
 
 	</div>
 </main>

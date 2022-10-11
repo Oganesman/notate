@@ -1,4 +1,4 @@
-@import "../../../media.scss";
+@import "../../../scss/media.scss";
 
 body {
 	height: 100vh;
@@ -13,9 +13,6 @@ body {
 }
 .page {
 	height: 100%;
-	// @include w_1350 {
-	// 	max-width: 1200px;
-	// }
 }
 .content {
 	display: grid;

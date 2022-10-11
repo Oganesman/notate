@@ -1,0 +1,29 @@
+.custom-danger{
+	width: 80%;
+	position: fixed !important;
+	z-index: 1;
+	left: 10%;
+	top: 2%;
+	text-align: center;
+	overflow: auto;
+	--bs-alert-color: #842029;
+	--bs-alert-bg: #f8d7da;
+	--bs-alert-border-color: #f5c2c7;
+	color: var(--bs-alert-color);
+	z-index: 7;
+}
+
+.custom-success{
+	width: 80%;
+	position: fixed !important;
+	z-index: 1;
+	left: 10%;
+	top: 2%;
+	text-align: center;
+	overflow: auto;
+	--bs-alert-color: #0f5132;
+	--bs-alert-bg: #d1e7dd;
+	--bs-alert-border-color: #badbcc;
+	color: var(--bs-alert-color);
+	z-index: 7;
+}

@@ -18,9 +18,12 @@
 	padding: 0 0 0.75em 0 !important;
 }
 
-
-
 //  random Background
 @mixin random-bgr(){
 	background: rgb(random(255), random(255), random(255));
- }
+}
+
+// placeholder for title
+[contenteditable="true"]:empty:not(:focus):before {
+	content: attr(data-text);
+}

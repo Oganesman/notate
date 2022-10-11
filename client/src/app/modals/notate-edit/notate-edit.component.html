@@ -1,24 +1,23 @@
-<div class="edit" >
+<div class="edit">
 	<div class="edit-content">
-		<!-- title -->
-		<div>
-			<mat-form-field class="main-write__field" appearance="fill">
-				<textarea [(ngModel)]="hs.notateInfo.title" name="title" class="main-write__textarea" matInput cdkTextareaAutosize
-					#autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
-					cdkAutosizeMaxRows="26"></textarea>
-			</mat-form-field>
+
+		<div class="edit-block">
+			<!-- title -->
+			<pre class="edit-content__title field" #topicTitle contenteditable="true" [textContent]="hs.notateInfo.title"
+				(blur)="hs.notateInfo.title=topicTitle.innerText" data-text="Titile">
+			</pre>
+
+			<!-- description -->
+			<pre class="edit-content__description field" #topicDescription contenteditable="true"
+				[textContent]="hs.notateInfo.description" (blur)="hs.notateInfo.description=topicDescription.innerText"
+				data-text="Note text">
+			</pre>
 		</div>
-		<!-- description -->
-		<div>
-			<mat-form-field class="main-write__field" appearance="fill">
-				<textarea class="main-write__textarea" [(ngModel)]="hs.notateInfo.description" name="description" value="" matInput
-					cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
-					cdkAutosizeMaxRows="26"></textarea>
-			</mat-form-field>
-		</div>
+
 
 		<!-- close -->
-		<div (click)="hs.showEditModal = !hs.showEditModal">Close</div>
-
+		<div class="nav" (click)="hs.showEditModal = !hs.showEditModal; hs.updateNotate()">
+			Close
+		</div>
 	</div>
 </div>

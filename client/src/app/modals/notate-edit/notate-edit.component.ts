@@ -8,9 +8,8 @@ import { HomeService } from 'src/app/service/home/home.service';
 })
 export class NotateEditComponent {
 
-	constructor(public hs: HomeService) { }
-
-	
-
+	constructor(public hs: HomeService) {
+		document.body.style.overflow = 'hidden'
+	 }
 
 }

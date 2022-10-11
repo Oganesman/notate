@@ -1,3 +1,10 @@
+
+
+// placeholder for title
+[contenteditable="true"]:empty:not(:focus):before {
+	content: attr(data-text);
+}
+
 :host {
 	z-index: 4;
 	position: fixed;
@@ -8,26 +15,67 @@
 	font-family: "Roboto", sans-serif;
 	padding: 0;
 	margin: 0;
-	background-color: rgba(32, 33, 36,0.6);
+	background-color: rgba(32, 33, 36, 0.6);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
 }
 
+.edit {
+	position: absolute;
+	top: 10%;
+}
+
 .edit-content {
+	overflow: hidden;
 	width: 600px;
-	min-height: 230px;
-
-
-	
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	min-height: 180px;
 	background-color: #fff;
-	color: #000;
-	text-align: center;
-	border-radius: 20px;
-	padding: 30px 30px 70px;
-	
+	border-radius: 8px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 50px;
+	box-shadow: 2px 4px 7px 4px rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+}
+.edit-block {
+	padding: 0 15px;
+	max-height: 500px;
+	overflow: auto;
+	grid-row: 1/2;
+}
+
+.field {
+	white-space: pre-wrap;
+	&:last-child {
+		margin-bottom: 30px;
+	}
+	&:focus-visible {
+		outline: none;
+	}
+}
+
+.edit-content__title {
+	font-size: 22px;
+	line-height: 1.75rem;
+	letter-spacing: 1px;
+	padding: 16px 0 12px;
+	font-family: "Ubuntu", sans-serif;
+}
+
+.edit-content__description {
+	font-family: "Montserrat", sans-serif;
+	font-size: 16px;
+	letter-spacing: 0.00625em;
+	line-height: 1.5rem;
+	padding: 4px 0 12px;
+}
+
+// nav
+.nav {
+	display: flex;
+	align-items: flex-end;
+	grid-row: 2/3;
+	height: 50px;
+	box-shadow: 0 -2px 5px rgb(0 0 0 / 20%);
 }

@@ -48,7 +48,7 @@ const routers: Routes = [
 		HeaderComponent,
 		SidebarComponent,
 		MainComponent,
-  NotateEditComponent
+		NotateEditComponent,
 	],
 	imports: [
 		BrowserModule,
