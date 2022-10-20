@@ -11,8 +11,9 @@
 				</div>
 				<!-- description -->
 				<div class="main-write__field">
-					<pre class="main-write__description pre-tag" #topicDescription contenteditable="true" [textContent]="hs.description"
-						(blur)="hs.description=topicDescription.innerText" data-text="Note text..">
+					<pre class="main-write__description pre-tag" #topicDescription contenteditable="true"
+						[textContent]="hs.description" (blur)="hs.description=topicDescription.innerText"
+						data-text="Note text..">
 				</pre>
 				</div>
 			</div>
@@ -20,19 +21,22 @@
 
 		<!-- !BOX NOTATE -->
 		<div class="main-notate notate">
-			<div class="notate__item" (click)="hs.notateEdit(notate)" *ngFor="let notate of hs.userNotates">
-				<!-- title -->
-				<div class="notate__title">
-					{{notate.title}} 
+			<div class="notate-item" (click)="hs.notateEdit(notate)" *ngFor="let notate of hs.userNotates">
+				<div class="notate__scroll">
+					<!-- title -->
+					<div class="notate__title" *ngIf="notate.title">
+						{{notate.title}}
+					</div>
+					<!-- title -->
+					<div class="notate__description" >
+						{{notate.description}}
+					</div>
 				</div>
-				<!-- title -->
-				<div class="notate__description">
-					{{notate.description}}
+				<div class="notate__settings">
+
 				</div>
 			</div>
+
 		</div>
-
-		<pre>asdassa</pre>
-
 	</div>
 </main>

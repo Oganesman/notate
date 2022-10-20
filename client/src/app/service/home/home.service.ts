@@ -31,7 +31,7 @@ export class HomeService {
 	// create notate
 	createNotates() {
 		const newNotate = {
-			title: this.title,
+			title: this.title ,
 			description: this.description,
 			author: this.myUser.id
 		}
@@ -55,9 +55,7 @@ export class HomeService {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
 		this.http.get(`http://localhost:5000/user/fetch/notate?_id=${this.myUser.id}`)
-			.pipe(map((data: any) =>
-				data
-			))
+			.pipe(map((data: any) => data))
 			.subscribe(data => {
 				this.userNotates = data
 			})
@@ -79,12 +77,10 @@ export class HomeService {
 
 	//click Outside and create notate
 	clickOutside(event: any) {
-		console.log(event);
-		
 		if (
 			event.target.classList.contains('main-write__container') ||
 			event.target.classList.contains('main-write__field') ||
-			event.target.classList.contains('pre-tag') 
+			event.target.classList.contains('pre-tag')
 		) {
 			return this.writing = true
 		} else if (this.title == '' && this.description == '') {

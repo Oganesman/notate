@@ -112,11 +112,13 @@ router.get('/fetch/notate', async (req, res) => {
 //update
 router.put('/notate/edit', async (req, res) => {
 	try {
-		const {title, description, id} = req.body
-		await notateSchema.updateOne({_id: id}, {$set:{
-			title: title,
-			description:description
-		}})
+		const { title, description, id } = req.body
+		await notateSchema.updateOne({ _id: id }, {
+			$set: {
+				title: title,
+				description: description
+			}
+		})
 		res.status(200).json('item success updated')
 	} catch (err) {
 		res.status(500).json(err)
