@@ -19,11 +19,5 @@ export class MainComponent {
 
 
 
-// (click)="deleteNotate(notate._id)"
-	// deleteNotate(id: any) {
-	// 	let headers = new HttpHeaders()
-	// 	headers.append('Content-Type', 'application/json')
-	// 	this.http.delete(`http://localhost:5000/user/notate/delete?_id=${id}`)
-	// 	.pipe(map(data => data))
-	// 	.subscribe(data => data)
-	// }
+
+	

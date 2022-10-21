@@ -31,7 +31,7 @@ export class HomeService {
 	// create notate
 	createNotates() {
 		const newNotate = {
-			title: this.title ,
+			title: this.title,
 			description: this.description,
 			author: this.myUser.id
 		}
@@ -90,5 +90,18 @@ export class HomeService {
 			return this.createNotates()
 		}
 	}
+	// delete Notate
+	deleteNotate(id:string) {
+		let headers = new HttpHeaders()
+		headers.append('Content-Type', 'application/json')
+		this.http.delete(`http://localhost:5000/user/notate/delete?_id=${id}`)
+			.pipe(map(data => data))
+			.subscribe(data => {
+				this.showNotates()
+				this.showEditModal = false
+			})
+	}
+
+
 }
 

@@ -4,20 +4,47 @@
 		<div class="edit-block">
 			<!-- title -->
 			<pre class="edit-content__title field" #topicTitle contenteditable="true" [textContent]="hs.notateInfo.title"
-				(blur)="hs.notateInfo.title=topicTitle.innerText" data-text="Titile">
+				(blur)="hs.notateInfo.title=topicTitle.innerText" data-text="Titile..">
 			</pre>
 
 			<!-- description -->
 			<pre class="edit-content__description field" #topicDescription contenteditable="true"
 				[textContent]="hs.notateInfo.description" (blur)="hs.notateInfo.description=topicDescription.innerText"
-				data-text="Note text">
+				data-text="Note text..">
 			</pre>
 		</div>
 
 
 		<!-- close -->
-		<div class="nav" (click)="hs.showEditModal = !hs.showEditModal; hs.updateNotate()">
-			Close
+		<div class="nav">
+			<!-- icons -->
+			<div class="nav-items">
+				<div class="nav-items__item info">
+					<img src="assets/modal/notification.svg" alt="">
+				</div>
+				<div class="nav-items__item info">
+					<img src="assets/modal/more.svg" alt="">
+				</div>
+				<div class="nav-items__item info">
+					<img src="assets/modal/palitra.svg" alt="">
+				</div>
+				<div class="nav-items__item info">
+					<img src="assets/modal/arrow-left.svg" alt="">
+				</div>
+				<div class="nav-items__item info">
+					<img src="assets/modal/arrow-right.svg" alt="">
+				</div>
+				<div (click)="hs.deleteNotate(hs.notateInfo._id)" class="nav-items__item info">
+					<img src="assets/modal/trash.svg" alt="">
+				</div>
+			</div>
+			<!-- button -->
+			<div class="nav-close" (click)="hs.showEditModal = !hs.showEditModal; hs.updateNotate()">
+				<div class="nav-close__text">
+					Close
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
