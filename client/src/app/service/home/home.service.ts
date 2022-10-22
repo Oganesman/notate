@@ -93,19 +93,20 @@ export class HomeService {
 
 	//click Outside and create notate
 	clickOutside(event: any) {
+		console.log(event);
+		
 		if (
 			event.target.classList.contains('main-write__container') ||
 			event.target.classList.contains('main-write__field') ||
 			event.target.classList.contains('pre-tag') ||
 			event.target.classList.contains('click-out') ||
-			event.target.classList.contains('settings-items') ||
 			event.target.classList.contains('image')
 		) {
 			return this.writing = true
 		} else if (this.title == '' && this.description == '') {
 			this.bgWrite = 0
 			return this.writing = false
-		} else if (event.target.currentSrc == "http://localhost:4200/assets/icon/trash.svg") {
+		} else if (event.target.contains('trash')) {
 			this.title = ''
 			this.description = ''
 			this.bgWrite = 0

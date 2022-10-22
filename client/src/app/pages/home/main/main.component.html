@@ -19,7 +19,7 @@
 						data-text="Note text..">
 					</pre>
 					<!-- icon -->
-					<div class="settings-items" [class.writeNotate]="!hs.writing">
+					<div class="settings-items click-out" [class.writeNotate]="!hs.writing">
 						<div class="settings-items__item info click-out">
 							<img class="image" src="assets/icon/notification.svg" alt="">
 						</div>
@@ -35,8 +35,8 @@
 						<div class="settings-items__item info click-out" (click)="Redo()">
 							<img class="image" src="assets/icon/arrow-right.svg" alt="">
 						</div>
-						<div class="settings-items__item info ">
-							<img src="assets/icon/trash.svg" alt="">
+						<div class="settings-items__item info">
+							<img class="trash" src="assets/icon/trash.svg" alt="">
 						</div>
 					</div>
 				</div>
