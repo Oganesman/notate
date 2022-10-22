@@ -1,7 +1,12 @@
 @import "../../../../scss/media.scss";
-@import "./custom-style.scss";
 @import "../../../../scss/background-notate.scss";
 
+// placeholder for title
+[contenteditable="true"]:empty:not(:focus):before {
+	content: attr(data-text);
+}
+
+// page
 .content {
 	@include w_1350 {
 		height: calc(100vh - 65px);
@@ -39,8 +44,6 @@
 	font-family: "Montserrat", sans-serif;
 	font-size: 14px;
 }
-
-
 
 // !BOX NOTATE
 .main-notate {

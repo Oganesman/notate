@@ -1,5 +1,6 @@
 @import '../../../scss/background-notate.scss';
 
+
 // placeholder for title
 [contenteditable="true"]:empty:not(:focus):before {
 	content: attr(data-text);
