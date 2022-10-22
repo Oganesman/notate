@@ -1,12 +1,12 @@
-<div class="edit" >
-	<div class="edit-content" >
-		<!-- [class.backgroundRed]="backgroundNotate == 2 -->
+<div class="edit">
+	<div class="edit-content" [class.bg-0]="hs.bgNum == 0" [class.bg-1]="hs.bgNum == 1" [class.bg-2]="hs.bgNum == 2"
+		[class.bg-3]="hs.bgNum == 3" [class.bg-4]="hs.bgNum == 4" [class.bg-5]="hs.bgNum == 5"
+		[class.bg-6]="hs.bgNum == 6">
 		<div class="edit-block">
 			<!-- title -->
 			<pre class="edit-content__title field" #topicTitle contenteditable="true" [textContent]="hs.notateInfo.title"
 				(blur)="hs.notateInfo.title=topicTitle.innerText" data-text="Titile..">
 			</pre>
-
 			<!-- description -->
 			<pre class="edit-content__description field" #topicDescription contenteditable="true"
 				[textContent]="hs.notateInfo.description" (blur)="hs.notateInfo.description=topicDescription.innerText"

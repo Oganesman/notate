@@ -1,5 +1,6 @@
 @import "../../../../scss/media.scss";
 @import "./custom-style.scss";
+@import "../../../../scss/background-notate.scss";
 
 .content {
 	@include w_1350 {
@@ -123,5 +124,4 @@
 	max-height: 0.1px;
 	height: 100%;
 	width: 100%;
-	box-shadow: 0px 0px 9px 10px #fffc;
 }

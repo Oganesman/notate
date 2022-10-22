@@ -21,18 +21,24 @@
 
 		<!-- !BOX NOTATE -->
 		<div class="main-notate notate">
-			<div class="notate-item" (click)="hs.notateEdit(notate)" *ngFor="let notate of hs.userNotates">
+			<div class="notate-item" (click)="hs.notateEdit(notate)" *ngFor="let notate of hs.userNotates"
+				[class.bg-0]="notate.background == 0" [class.bg-1]="notate.background == 1" [class.bg-2]="notate.background == 2"
+				[class.bg-3]="notate.background == 3" [class.bg-4]="notate.background == 4" [class.bg-5]="notate.background == 5"
+				[class.bg-6]="notate.background == 6">
 				<div class="notate__scroll">
 					<!-- title -->
 					<div class="notate__title" *ngIf="notate.title">
 						{{notate.title}}
 					</div>
 					<!-- title -->
-					<div class="notate__description" >
+					<div class="notate__description">
 						{{notate.description}}
 					</div>
 				</div>
-				<div class="notate__settings">
+				<div class="notate__settings" [class.b-sh-0]="notate.background == 0" [class.b-sh-1]="notate.background == 1" [class.b-sh-2]="notate.background == 2"
+				[class.b-sh-3]="notate.background == 3" [class.b-sh-4]="notate.background == 4" [class.b-sh-5]="notate.background == 5"
+				[class.b-sh-6]="notate.background == 6"
+				>
 				</div>
 			</div>
 

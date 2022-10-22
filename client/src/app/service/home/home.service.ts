@@ -13,6 +13,8 @@ export class HomeService {
 	public notateInfo: any
 	//show notates ngFor
 	public userNotates: any
+	// bacground Number for class
+	public bgNum: number = 0
 	// click outside
 	public writing: boolean = false;
 	//create notate
@@ -25,8 +27,8 @@ export class HomeService {
 	// modal edit notate
 	notateEdit(notate: any) {
 		this.notateInfo = notate;
+		this.bgNum = notate.background;
 		this.showEditModal = !this.showEditModal
-		console.log(this.notateInfo);
 	}
 
 	// create notate
@@ -61,6 +63,7 @@ export class HomeService {
 				this.notateInfo = data.find((el: any) => {
 					return el._id == this.notateInfo?._id
 				})
+				this.bgNum = this.notateInfo?.background
 				this.userNotates = data
 			})
 	}
