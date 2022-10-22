@@ -14,7 +14,7 @@ export class HomeService {
 	//show notates ngFor
 	public userNotates: any
 	// bacground Number for class
-	public bgNum: number = 0
+	public bgNum: number
 	// click outside
 	public writing: boolean = false;
 	//create notate
@@ -27,7 +27,7 @@ export class HomeService {
 	// modal edit notate
 	notateEdit(notate: any) {
 		this.notateInfo = notate;
-		this.bgNum = notate.background;
+		this.bgNum = notate.background == undefined ? 0 : notate.background;		
 		this.showEditModal = !this.showEditModal
 	}
 
@@ -110,14 +110,15 @@ export class HomeService {
 	}
 
 	// change Bacground Color Notate
-	changeBackground() {
-		const notate = {
+	changeBackground(notate:any = null) {
+		this.notateInfo = notate == null ? this.notateInfo : notate
+		const notateObj = {
 			id: this.notateInfo._id,
 			colorNum: this.notateInfo.background == 6 ? 0 : this.notateInfo.background += 1,
 		}
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
-		this.http.post('http://localhost:5000/user/notate/background', notate, { headers: headers })
+		this.http.post('http://localhost:5000/user/notate/background', notateObj, { headers: headers })
 			.pipe(map(data => data))
 			.subscribe(data => {
 				this.showNotates()

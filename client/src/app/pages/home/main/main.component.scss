@@ -50,7 +50,6 @@
 .main-notate {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-	// gap: 16px;
 	flex-wrap: wrap-reverse;
 	width: 1040px;
 	margin: 0 auto 16px auto;
@@ -65,7 +64,6 @@
 
 .notate-item {
 	transition: 0.3s;
-	// padding: 12px 2px 12px 16px;
 	position: relative;
 	overflow: hidden;
 	max-width: 240px;
@@ -75,29 +73,20 @@
 	border: 1px solid rgb(219, 218, 218);
 	text-align: left;
 	margin: 8px;
-	background-image: paint(randomBackground);
 	color: #000;
-	// color: #fff;
-	& {
-		// $num-colors: 100;
-		// $base-color: #996b4d;
-		// $spectrum: 360deg;
-		// $offset: 50deg;
-		// @for $i from 0 to $num-colors {
-		// 	&:nth-child(#{$i}) {
-		// 		@include random-bgr();
-		// 	}
-		// }
-	}
 	&:hover {
 		transition: 0.3s;
 		box-shadow: 1px 1px 5px 2px rgb(60 64 67 / 30%), 0 1px 1px 1px rgb(60 64 67 / 15%);
+		.notate-settings {
+			transition: 0.3s;
+			max-height: 34px;
+		}
 	}
 }
 
-.notate__scroll {
+.notate-scroll {
 	overflow: auto;
-	padding: 10px 5px 10px 10px;
+	padding: 10px 5px 40px 10px;
 	max-height: 200px;
 	min-height: 110px;
 }
@@ -118,10 +107,37 @@
 }
 
 // settings
-.notate__settings {
+.notate-settings {
+	transition: 0.3s;
 	position: absolute;
 	bottom: 0px;
 	max-height: 0.1px;
 	height: 100%;
 	width: 100%;
+}
+.settings-items {
+	display: flex;
+	justify-content: space-around;
+}
+.settings-items__item {
+	width: 32px;
+	height: 32px;
+}
+.info {
+	cursor: pointer;
+	transition: 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+
+	&:hover {
+		transition: 0.3s;
+		opacity: 0.87;
+		background-color: rgba(95, 99, 104, 0.157);
+	}
+
+	img {
+		width: 20px;
+	}
 }

@@ -21,11 +21,12 @@
 
 		<!-- !BOX NOTATE -->
 		<div class="main-notate notate">
-			<div class="notate-item" (click)="hs.notateEdit(notate)" *ngFor="let notate of hs.userNotates"
-				[class.bg-0]="notate.background == 0" [class.bg-1]="notate.background == 1" [class.bg-2]="notate.background == 2"
-				[class.bg-3]="notate.background == 3" [class.bg-4]="notate.background == 4" [class.bg-5]="notate.background == 5"
+			<div class="notate-item"  *ngFor="let notate of hs.userNotates"
+				[class.bg-0]="notate.background == 0" [class.bg-1]="notate.background == 1"
+				[class.bg-2]="notate.background == 2" [class.bg-3]="notate.background == 3"
+				[class.bg-4]="notate.background == 4" [class.bg-5]="notate.background == 5"
 				[class.bg-6]="notate.background == 6">
-				<div class="notate__scroll">
+				<div class="notate-scroll" (click)="hs.notateEdit(notate)">
 					<!-- title -->
 					<div class="notate__title" *ngIf="notate.title">
 						{{notate.title}}
@@ -35,10 +36,25 @@
 						{{notate.description}}
 					</div>
 				</div>
-				<div class="notate__settings" [class.b-sh-0]="notate.background == 0" [class.b-sh-1]="notate.background == 1" [class.b-sh-2]="notate.background == 2"
-				[class.b-sh-3]="notate.background == 3" [class.b-sh-4]="notate.background == 4" [class.b-sh-5]="notate.background == 5"
-				[class.b-sh-6]="notate.background == 6"
-				>
+				<!-- icon -->
+				<div class="notate-settings" [class.b-sh-0]="notate.background == 0"
+					[class.b-sh-1]="notate.background == 1" [class.b-sh-2]="notate.background == 2"
+					[class.b-sh-3]="notate.background == 3" [class.b-sh-4]="notate.background == 4"
+					[class.b-sh-5]="notate.background == 5" [class.b-sh-6]="notate.background == 6">
+					<div class="settings-items">
+						<div class="settings-items__item info">
+							<img src="assets/icon/notification.svg" alt="">
+						</div>
+						<div class="settings-items__item info">
+							<img src="assets/icon/more.svg" alt="">
+						</div>
+						<div (click)="hs.changeBackground(notate)" class="settings-items__item info">
+							<img src="assets/icon/palitra.svg" alt="">
+						</div>
+						<div (click)="hs.deleteNotate(notate._id)" class="settings-items__item info">
+							<img src="assets/icon/trash.svg" alt="">
+						</div>
+					</div>
 				</div>
 			</div>
 
