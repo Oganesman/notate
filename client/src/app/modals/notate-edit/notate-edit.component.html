@@ -1,6 +1,6 @@
-<div class="edit">
-	<div class="edit-content">
-
+<div class="edit" >
+	<div class="edit-content" >
+		<!-- [class.backgroundRed]="backgroundNotate == 2 -->
 		<div class="edit-block">
 			<!-- title -->
 			<pre class="edit-content__title field" #topicTitle contenteditable="true" [textContent]="hs.notateInfo.title"
@@ -13,8 +13,6 @@
 				data-text="Note text..">
 			</pre>
 		</div>
-
-
 		<!-- close -->
 		<div class="nav">
 			<!-- icons -->
@@ -25,7 +23,7 @@
 				<div class="nav-items__item info">
 					<img src="assets/modal/more.svg" alt="">
 				</div>
-				<div class="nav-items__item info">
+				<div (click)="hs.changeBackground()" class="nav-items__item info">
 					<img src="assets/modal/palitra.svg" alt="">
 				</div>
 				<div class="nav-items__item info">

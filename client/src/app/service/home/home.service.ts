@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FlashMessagesService } from 'flash-messages-angular';
-import { map } from 'rxjs';
+import { find, map } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'
@@ -26,6 +26,7 @@ export class HomeService {
 	notateEdit(notate: any) {
 		this.notateInfo = notate;
 		this.showEditModal = !this.showEditModal
+		console.log(this.notateInfo);
 	}
 
 	// create notate
@@ -57,6 +58,9 @@ export class HomeService {
 		this.http.get(`http://localhost:5000/user/fetch/notate?_id=${this.myUser.id}`)
 			.pipe(map((data: any) => data))
 			.subscribe(data => {
+				this.notateInfo = data.find((el: any) => {
+					return el._id == this.notateInfo?._id
+				})
 				this.userNotates = data
 			})
 	}
@@ -91,7 +95,7 @@ export class HomeService {
 		}
 	}
 	// delete Notate
-	deleteNotate(id:string) {
+	deleteNotate(id: string) {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
 		this.http.delete(`http://localhost:5000/user/notate/delete?_id=${id}`)
@@ -102,6 +106,19 @@ export class HomeService {
 			})
 	}
 
-
+	// change Bacground Color Notate
+	changeBackground() {
+		const notate = {
+			id: this.notateInfo._id,
+			colorNum: this.notateInfo.background == 6 ? 0 : this.notateInfo.background += 1,
+		}
+		let headers = new HttpHeaders()
+		headers.append('Content-Type', 'application/json')
+		this.http.post('http://localhost:5000/user/notate/background', notate, { headers: headers })
+			.pipe(map(data => data))
+			.subscribe(data => {
+				this.showNotates()
+			})
+	}
 }
 

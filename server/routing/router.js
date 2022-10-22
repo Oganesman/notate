@@ -1,25 +1,12 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const passport = require('passport')
-
 const router = express.Router()
 const usersSchema = require('../mongoDB/users-schema')
 const notateSchema = require('../mongoDB/notates-schema')
 const mongoSecret = require('../mongoDB/db')
 
 router.post('/reg', async (req, res) => {
-	// let newUser = new usersSchema({
-	// 	name: req.body.name,
-	// 	email: req.body.email,
-	// 	login: req.body.login,
-	// 	password: req.body.password
-	// })
-	// usersSchema.addUser(newUser, (err, user) => {
-	// 	if (err)
-	// 		res.json({ status: false, msg: "Sorry not correct registration" })
-	// 	else
-	// 		res.json({ status: true, msg: "Your registartion success" })
-	// })
 	const { name, email, password } = req.body
 	const isSigned = await usersSchema.findOne({ email })
 	if (isSigned) {
@@ -129,12 +116,28 @@ router.put('/notate/edit', async (req, res) => {
 router.delete('/notate/delete', async (req, res) => {
 	try {
 		const _id = req.query
-		const del = await notateSchema.findOneAndDelete({ _id: _id })
+		await notateSchema.findOneAndDelete({ _id: _id })
 		res.status(200).json('item success deleted')
 	} catch (err) {
 		return res.status(500).json(err)
 	}
 
+})
+
+
+// change background color
+router.post('/notate/background', async (req, res) => {
+	try {
+		const { id, colorNum } = req.body
+		await notateSchema.updateOne({ _id: id }, {
+			$set: {
+				background: colorNum
+			}
+		})
+		return res.status(200).json('Change background color')
+	} catch (err) {
+		return res.status(500).json(err)
+	}
 })
 
 //all notates
