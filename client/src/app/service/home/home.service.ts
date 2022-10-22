@@ -34,7 +34,7 @@ export class HomeService {
 	}
 
 	//change bacground for create notate
-	checkBacground(){
+	checkBacground() {
 		this.bgWrite = this.bgWrite == undefined ? 1 : this.bgWrite += 1
 		this.bgWrite = this.bgWrite > 6 ? 0 : this.bgWrite
 	}
@@ -45,11 +45,12 @@ export class HomeService {
 			title: this.title,
 			description: this.description,
 			author: this.myUser.id,
-			background: this.bgNum
+			background: this.bgWrite || 0
 		}
 		this.createNotateApi(newNotate)
 		this.title = ''
 		this.description = ''
+		this.bgWrite = 0
 	}
 
 	createNotateApi(newNotate: any) {
@@ -93,8 +94,6 @@ export class HomeService {
 
 	//click Outside and create notate
 	clickOutside(event: any) {
-		console.log(event);
-		
 		if (
 			event.target.classList.contains('main-write__container') ||
 			event.target.classList.contains('main-write__field') ||
@@ -106,7 +105,7 @@ export class HomeService {
 		} else if (this.title == '' && this.description == '') {
 			this.bgWrite = 0
 			return this.writing = false
-		} else if (event.target.contains('trash')) {
+		} else if (event.target.classList.contains('trash')) {
 			this.title = ''
 			this.description = ''
 			this.bgWrite = 0
