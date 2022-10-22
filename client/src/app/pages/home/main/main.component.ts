@@ -12,6 +12,8 @@ import { HomeService } from 'src/app/service/home/home.service';
 export class MainComponent {
 	constructor(public hs: HomeService, private http: HttpClient) {
 	}
+	Undo() { document.execCommand("undo", false, 'null') }
+	Redo() { document.execCommand("redo", false, 'null') }
 }
 
 
@@ -20,4 +22,3 @@ export class MainComponent {
 
 
 
-	

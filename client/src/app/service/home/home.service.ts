@@ -27,7 +27,7 @@ export class HomeService {
 	// modal edit notate
 	notateEdit(notate: any) {
 		this.notateInfo = notate;
-		this.bgNum = notate.background == undefined ? 0 : notate.background;		
+		this.bgNum = notate.background == undefined ? 0 : notate.background;
 		this.showEditModal = !this.showEditModal
 	}
 
@@ -87,10 +87,17 @@ export class HomeService {
 		if (
 			event.target.classList.contains('main-write__container') ||
 			event.target.classList.contains('main-write__field') ||
-			event.target.classList.contains('pre-tag')
+			event.target.classList.contains('pre-tag') ||
+			event.target.classList.contains('click-out') ||
+			event.target.classList.contains('settings-items') ||
+			event.target.classList.contains('image')
 		) {
 			return this.writing = true
 		} else if (this.title == '' && this.description == '') {
+			return this.writing = false
+		} else if (event.target.currentSrc == "http://localhost:4200/assets/icon/trash.svg") {
+			this.title = ''
+			this.description = ''
 			return this.writing = false
 		} else {
 			this.writing = false
@@ -110,7 +117,7 @@ export class HomeService {
 	}
 
 	// change Bacground Color Notate
-	changeBackground(notate:any = null) {
+	changeBackground(notate: any = null) {
 		this.notateInfo = notate == null ? this.notateInfo : notate
 		const notateObj = {
 			id: this.notateInfo._id,

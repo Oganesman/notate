@@ -40,11 +40,7 @@
 	font-size: 14px;
 }
 
-.writeNotate {
-	.main-write__field:first-child {
-		display: none;
-	}
-}
+
 
 // !BOX NOTATE
 .main-notate {
@@ -139,5 +135,14 @@
 
 	img {
 		width: 20px;
+	}
+}
+//! dont up
+.writeNotate {
+	.main-write__field:first-child {
+		display: none;
+	}
+	.settings-items {
+		display: none;
 	}
 }
