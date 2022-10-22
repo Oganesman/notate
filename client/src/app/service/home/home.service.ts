@@ -13,7 +13,9 @@ export class HomeService {
 	public notateInfo: any
 	//show notates ngFor
 	public userNotates: any
-	// bacground Number for class
+	// bacground Number for notate writing block
+	public bgWrite: number
+	// bacground Number for notate main and modal
 	public bgNum: number
 	// click outside
 	public writing: boolean = false;
@@ -31,12 +33,19 @@ export class HomeService {
 		this.showEditModal = !this.showEditModal
 	}
 
+	//change bacground for create notate
+	checkBacground(){
+		this.bgWrite = this.bgWrite == undefined ? 1 : this.bgWrite += 1
+		this.bgWrite = this.bgWrite > 6 ? 0 : this.bgWrite
+	}
+
 	// create notate
 	createNotates() {
 		const newNotate = {
 			title: this.title,
 			description: this.description,
-			author: this.myUser.id
+			author: this.myUser.id,
+			background: this.bgNum
 		}
 		this.createNotateApi(newNotate)
 		this.title = ''
@@ -94,10 +103,12 @@ export class HomeService {
 		) {
 			return this.writing = true
 		} else if (this.title == '' && this.description == '') {
+			this.bgWrite = 0
 			return this.writing = false
 		} else if (event.target.currentSrc == "http://localhost:4200/assets/icon/trash.svg") {
 			this.title = ''
 			this.description = ''
+			this.bgWrite = 0
 			return this.writing = false
 		} else {
 			this.writing = false

@@ -69,11 +69,12 @@ router.get('/dashboard', passport.authenticate('jwt', { session: false }), (req,
 
 // create notate
 router.post('/create/notate', (req, res) => {
-	const { title, description, author } = req.body;
+	const { title, description, author, background } = req.body;
 	const newNotate = new notateSchema({
 		title,
 		description,
 		author,
+		background
 	})
 	notateSchema.newNotate(newNotate, (err, notate) => {
 		if (err)
