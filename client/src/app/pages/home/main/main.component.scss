@@ -24,7 +24,7 @@
 
 // !INPUT
 .main-write {
-	width: 100%;
+	width: 80%;
 	max-width: 600px;
 	margin: 32px auto 32px;
 	border: 1px solid #dedede;
@@ -50,7 +50,8 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	flex-wrap: wrap-reverse;
-	width: 1040px;
+	width: 100%;
+	max-width: 1040px;
 	margin: 0 auto 16px auto;
 	& > .notate-item {
 		direction: ltr;
@@ -58,6 +59,17 @@
 	&,
 	& > .notate-item {
 		transform: rotate(180deg);
+	}
+	@include w_1120 {
+		grid-template-columns: repeat(3, minmax(240px, 260px));
+		justify-content: space-around;
+	}
+	@include w_900 {
+		grid-template-columns: repeat(2, minmax(240px, 260px));
+	}
+	@include w_600 {
+		grid-template-columns: repeat(1, minmax(10%, 80%));
+		justify-content: center;
 	}
 }
 
@@ -80,6 +92,10 @@
 			transition: 0.3s;
 			max-height: 34px;
 		}
+	}
+	@include w_600 {
+		max-width: inherit;
+		margin: 8px 0;
 	}
 }
 
