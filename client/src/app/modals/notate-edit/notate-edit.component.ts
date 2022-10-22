@@ -10,5 +10,6 @@ export class NotateEditComponent {
 	constructor(public hs: HomeService) {
 		document.body.style.overflow = 'hidden'
 	}
-	
+	Undo() { document.execCommand("undo", false, 'null') }
+	Redo() { document.execCommand("redo", false, 'null') }
 }
