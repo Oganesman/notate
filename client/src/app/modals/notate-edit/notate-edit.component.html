@@ -1,7 +1,7 @@
 <div class="edit">
-	<div class="edit-content" [class.bg-0]="hs.bgNum == 0" [class.bg-1]="hs.bgNum == 1" [class.bg-2]="hs.bgNum == 2"
-		[class.bg-3]="hs.bgNum == 3" [class.bg-4]="hs.bgNum == 4" [class.bg-5]="hs.bgNum == 5"
-		[class.bg-6]="hs.bgNum == 6">
+	<div class="edit-content" [class.bg-0]="hs.modalBgColor == 0" [class.bg-1]="hs.modalBgColor == 1" [class.bg-2]="hs.modalBgColor == 2"
+		[class.bg-3]="hs.modalBgColor == 3" [class.bg-4]="hs.modalBgColor == 4" [class.bg-5]="hs.modalBgColor == 5"
+		[class.bg-6]="hs.modalBgColor == 6">
 		<div class="edit-block">
 			<!-- title -->
 			<pre class="edit-content__title field" #topicTitle contenteditable="true" [textContent]="hs.notateInfo.title"
@@ -23,7 +23,7 @@
 				<div class="nav-items__item info">
 					<img src="assets/icon/more.svg" alt="">
 				</div>
-				<div (click)="hs.changeBackground()" class="nav-items__item info">
+				<div (click)="hs.modalChangeColor()" class="nav-items__item info">
 					<img src="assets/icon/palitra.svg" alt="">
 				</div>
 				<div class="nav-items__item info" (click)="Undo()">

@@ -14,9 +14,9 @@ export class HomeService {
 	//show notates ngFor
 	public userNotates: any
 	// bacground Number for notate writing block
-	public bgWrite: number
+	public writingBlockBg: number
 	// bacground Number for notate main and modal
-	public bgNum: number
+	public modalBgColor: number
 	// click outside
 	public writing: boolean = false;
 	//create notate
@@ -29,15 +29,11 @@ export class HomeService {
 	// modal edit notate
 	notateEdit(notate: any) {
 		this.notateInfo = notate;
-		this.bgNum = notate.background == undefined ? 0 : notate.background;
+		this.modalBgColor = notate.background == undefined ? 0 : notate.background;
 		this.showEditModal = !this.showEditModal
 	}
 
-	//change bacground for create notate
-	checkBacground() {
-		this.bgWrite = this.bgWrite == undefined ? 1 : this.bgWrite += 1
-		this.bgWrite = this.bgWrite > 6 ? 0 : this.bgWrite
-	}
+
 
 	// create notate
 	createNotates() {
@@ -45,12 +41,12 @@ export class HomeService {
 			title: this.title,
 			description: this.description,
 			author: this.myUser.id,
-			background: this.bgWrite || 0
+			background: this.writingBlockBg || 0
 		}
 		this.createNotateApi(newNotate)
 		this.title = ''
 		this.description = ''
-		this.bgWrite = 0
+		this.writingBlockBg = 0
 	}
 
 	createNotateApi(newNotate: any) {
@@ -73,7 +69,6 @@ export class HomeService {
 				this.notateInfo = data.find((el: any) => {
 					return el._id == this.notateInfo?._id
 				})
-				this.bgNum = this.notateInfo?.background
 				this.userNotates = data
 			})
 	}
@@ -103,12 +98,12 @@ export class HomeService {
 		) {
 			return this.writing = true
 		} else if (this.title == '' && this.description == '') {
-			this.bgWrite = 0
+			this.writingBlockBg = 0
 			return this.writing = false
 		} else if (event.target.classList.contains('trash')) {
 			this.title = ''
 			this.description = ''
-			this.bgWrite = 0
+			this.writingBlockBg = 0
 			return this.writing = false
 		} else {
 			this.writing = false
@@ -127,20 +122,49 @@ export class HomeService {
 			})
 	}
 
-	// change Bacground Color Notate
-	changeBackground(notate: any = null) {
-		this.notateInfo = notate == null ? this.notateInfo : notate
-		const notateObj = {
-			id: this.notateInfo._id,
-			colorNum: this.notateInfo.background == 6 ? 0 : this.notateInfo.background += 1,
+	// change Background Color Notate for writing block
+	writingChangeColor() {
+		this.writingBlockBg = this.writingBlockBg == undefined ? 1 : this.writingBlockBg += 1
+		this.writingBlockBg = this.writingBlockBg > 6 ? 0 : this.writingBlockBg
+	}
+
+	// change Background Color Notate for main page
+	mainChangeColor(notate: any) {
+		this.userNotates.map((el: any) => {
+			if (el._id == notate._id) {
+				el.background = notate.background == 6 ? 0 : notate.background += 1
+			}
+		})
+		const { _id, background } = this.userNotates.find((el: any) => {
+			if (el._id == notate._id) {
+				return el
+			}
+		})
+		const newColor = {
+			id: _id,
+			colorNum: background
 		}
+		this.changeBacground(newColor)
+	}
+
+	// change Background Color Notate for modal
+	modalChangeColor() {
+		this.notateInfo.background = this.notateInfo.background >= 6 ? 0 : this.notateInfo.background += 1
+		const newColor = {
+			id: this.notateInfo._id,
+			colorNum: this.notateInfo.background,
+		}
+		this.modalBgColor = newColor.colorNum
+		this.changeBacground(newColor)
+	}
+
+	// API for change notate background
+	changeBacground(newColor: object) {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
-		this.http.post('http://localhost:5000/notate/background', notateObj, { headers: headers })
+		this.http.post('http://localhost:5000/notate/background', newColor, { headers: headers })
 			.pipe(map(data => data))
 			.subscribe(data => {
-				this.showNotates()
 			})
 	}
 }
-

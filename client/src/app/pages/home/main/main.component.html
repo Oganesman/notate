@@ -1,10 +1,10 @@
 <main class="content">
 	<div class="main-block">
 		<!-- !INPUT -->
-		<div class="main-write" [class.bg-0]="hs.bgWrite == 0"
-		[class.bg-1]="hs.bgWrite == 1" [class.bg-2]="hs.bgWrite == 2"
-		[class.bg-3]="hs.bgWrite == 3" [class.bg-4]="hs.bgWrite == 4"
-		[class.bg-5]="hs.bgWrite == 5" [class.bg-6]="hs.bgWrite == 6">
+		<div class="main-write" [class.bg-0]="hs.writingBlockBg == 0"
+		[class.bg-1]="hs.writingBlockBg == 1" [class.bg-2]="hs.writingBlockBg == 2"
+		[class.bg-3]="hs.writingBlockBg == 3" [class.bg-4]="hs.writingBlockBg == 4"
+		[class.bg-5]="hs.writingBlockBg == 5" [class.bg-6]="hs.writingBlockBg == 6">
 			<div class="main-write__container" [class.writeNotate]="!hs.writing">
 				<!-- title -->
 				<div class="main-write__field ">
@@ -26,7 +26,7 @@
 						<div class="settings-items__item info click-out">
 							<img class="image" src="assets/icon/more.svg" alt="">
 						</div>
-						<div (click)="hs.checkBacground()" class="settings-items__item info click-out">
+						<div (click)="hs.writingChangeColor()" class="settings-items__item info click-out">
 							<img class="image" src="assets/icon/palitra.svg" alt="">
 						</div>
 						<div class="settings-items__item info click-out" (click)="Undo()">
@@ -72,7 +72,7 @@
 						<div class="settings-items__item info">
 							<img src="assets/icon/more.svg" alt="">
 						</div>
-						<div (click)="hs.changeBackground(notate)" class="settings-items__item info">
+						<div (click)="hs.mainChangeColor(notate)" class="settings-items__item info">
 							<img src="assets/icon/palitra.svg" alt="">
 						</div>
 						<div (click)="hs.deleteNotate(notate._id)" class="settings-items__item info">
