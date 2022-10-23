@@ -1,5 +1,6 @@
 const express = require('express')
-const routing = require('./routing/router')
+const userRouting = require('./routing/router')
+const notateRouting = require('./routing/notate')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -35,8 +36,9 @@ mongoose.connection.on('error', (err) => {
 //router
 app.get('/', (req, res) => {
 	res.json('Home')
- })
-app.use('/user', routing)
+})
+app.use('/user', userRouting)
+app.use('/notate', notateRouting)
 
 app.listen(port, function (req, res) {
 	console.log('Server started on port ' + port)

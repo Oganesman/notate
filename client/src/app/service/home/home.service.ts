@@ -56,7 +56,7 @@ export class HomeService {
 	createNotateApi(newNotate: any) {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
-		this.http.post('http://localhost:5000/user/create/notate', newNotate, { headers: headers })
+		this.http.post('http://localhost:5000/notate/create', newNotate, { headers: headers })
 			.pipe(map(data => data))
 			.subscribe(data => {
 				this.showNotates()
@@ -67,7 +67,7 @@ export class HomeService {
 	showNotates() {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
-		this.http.get(`http://localhost:5000/user/fetch/notate?_id=${this.myUser.id}`)
+		this.http.get(`http://localhost:5000/notate/show?_id=${this.myUser.id}`)
 			.pipe(map((data: any) => data))
 			.subscribe(data => {
 				this.notateInfo = data.find((el: any) => {
@@ -87,7 +87,7 @@ export class HomeService {
 		}
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
-		this.http.put('http://localhost:5000/user/notate/edit', newEdit, { headers: headers })
+		this.http.patch('http://localhost:5000/notate/update', newEdit, { headers: headers })
 			.pipe(map(data => data))
 			.subscribe(data => data)
 	}
@@ -119,7 +119,7 @@ export class HomeService {
 	deleteNotate(id: string) {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
-		this.http.delete(`http://localhost:5000/user/notate/delete?_id=${id}`)
+		this.http.delete(`http://localhost:5000/notate/delete?_id=${id}`)
 			.pipe(map(data => data))
 			.subscribe(data => {
 				this.showNotates()
@@ -136,7 +136,7 @@ export class HomeService {
 		}
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
-		this.http.post('http://localhost:5000/user/notate/background', notateObj, { headers: headers })
+		this.http.post('http://localhost:5000/notate/background', notateObj, { headers: headers })
 			.pipe(map(data => data))
 			.subscribe(data => {
 				this.showNotates()
