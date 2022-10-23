@@ -12,6 +12,9 @@ const NotatesSchema = mongoose.Schema({
 	},
 	background:{
 		type: Number
+	},
+	fixed:{
+		type: Boolean
 	}
 })
 

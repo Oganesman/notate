@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FlashMessagesService } from 'flash-messages-angular';
-import { find, map } from 'rxjs';
+import { map } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'
@@ -12,7 +12,9 @@ export class HomeService {
 	showEditModal: boolean = false;
 	public notateInfo: any
 	//show notates ngFor
-	public userNotates: any
+	public userNotates: any = []
+	//show notates for FIxed
+	public userFixedNotates: any = []
 	// bacground Number for notate writing block
 	public writingBlockBg: number
 	// bacground Number for notate main and modal
@@ -32,8 +34,6 @@ export class HomeService {
 		this.modalBgColor = notate.background == undefined ? 0 : notate.background;
 		this.showEditModal = !this.showEditModal
 	}
-
-
 
 	// create notate
 	createNotates() {
@@ -63,12 +63,9 @@ export class HomeService {
 	showNotates() {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
-		this.http.get(`http://localhost:5000/notate/show?_id=${this.myUser.id}`)
+		this.http.get(`http://localhost:5000/notate/show?_id=${this.myUser.id}`, { headers: headers })
 			.pipe(map((data: any) => data))
 			.subscribe(data => {
-				this.notateInfo = data.find((el: any) => {
-					return el._id == this.notateInfo?._id
-				})
 				this.userNotates = data
 			})
 	}

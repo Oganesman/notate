@@ -74,6 +74,21 @@ router.post('/background', async (req, res) => {
 	}
 })
 
+// fixed notate
+router.post('/fixed', async (req, res) => {
+	try {
+		const { id, fixed } = req.body
+		await notateSchema.updateOne({ _id: id }, {
+			$set: {
+				fixed: fixed
+			}
+		})
+		res.status(200).json('Notate fixed success')
+	} catch (err) {
+		return res.status(500).json(err)
+	}
+})
+
 //all notates
 // router.get('/fetch/notates', async (req, res) => {
 // 	try {
