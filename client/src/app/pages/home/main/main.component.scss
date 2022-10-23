@@ -73,7 +73,6 @@
 }
 
 .notate-item {
-	transition: 1s;
 	position: relative;
 	overflow: hidden;
 	max-width: 240px;
@@ -122,6 +121,8 @@
 // settings
 .notate-settings {
 	transition: 0.3s;
+	box-shadow: 0px 0px 9px 10px transparent;
+	background-color: transparent;
 	position: absolute;
 	bottom: 0px;
 	max-height: 0.1px;
@@ -143,13 +144,11 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
-
 	&:hover {
 		transition: 0.3s;
 		opacity: 0.87;
 		background-color: rgba(95, 99, 104, 0.157);
 	}
-
 	img {
 		width: 20px;
 	}

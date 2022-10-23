@@ -1,78 +1,42 @@
 // background
 .bg-0 {
 	background-color: #fff;
-	transition: 0.5s;
+	transition: 0.3s;
 	border: 1px solid #dedede;
 }
 .bg-1 {
 	border: 1px solid #f28b82;
 	background-color: #f28b82;
-	transition: 0.5s;
+	border-color: #f28b82;
+	transition: 0.3s;
 }
 .bg-2 {
 	border: 1px solid #fbbc04;
 	background-color: #fbbc04;
-	transition: 0.5s;
+	border-color: #fbbc04;
+	transition: 0.3s;
 }
 .bg-3 {
 	border: 1px solid #ccff90;
 	background-color: #ccff90;
-	transition: 0.5s;
+	border-color: #ccff90;
+	transition: 0.3s;
 }
 .bg-4 {
 	border: 1px solid #a7ffeb;
 	background-color: #a7ffeb;
-	transition: 0.5s;
+	border-color: #a7ffeb;
+	transition: 0.3s;
 }
 .bg-5 {
 	border: 1px solid #aecbfa;
 	background-color: #aecbfa;
-	transition: 0.5s;
+	border-color: #aecbfa;
+	transition: 0.3s;
 }
 .bg-6 {
 	border: 1px solid #fdcfe8;
 	background-color: #fdcfe8;
-	transition: 0.5s;
-}
-
-// box-shadow
-.b-sh-0 {
-	transition: 0.5s;
-	box-shadow: 0px 0px 9px 10px #fffc;
-}
-.b-sh-1 {
-	box-shadow: 0px 0px 9px 10px #f28b82;
-	background-color: #f28b82;
-	transition: 0.5s;
-	border-color: #f28b82;
-}
-.b-sh-2 {
-	box-shadow: 0px 0px 9px 10px #fbbc04;
-	background-color: #fbbc04;
-	transition: 0.5s;
-	border-color: #fbbc04;
-}
-.b-sh-3 {
-	box-shadow: 0px 0px 9px 10px #ccff90;
-	background-color: #ccff90;
-	transition: 0.5s;
-	border-color: #ccff90;
-}
-.b-sh-4 {
-	box-shadow: 0px 0px 9px 10px #a7ffeb;
-	background-color: #a7ffeb;
-	transition: 0.5s;
-	border-color: #a7ffeb;
-}
-.b-sh-5 {
-	box-shadow: 0px 0px 9px 10px #aecbfa;
-	background-color: #aecbfa;
-	transition: 0.5s;
-	border-color: #aecbfa;
-}
-.b-sh-6 {
-	box-shadow: 0px 0px 9px 10px #fdcfe8;
-	transition: 0.5s;
-	background-color: #fdcfe8;
 	border-color: #fdcfe8;
+	transition: 0.3s;
 }
