@@ -66,6 +66,8 @@ export class HomeService {
 		this.http.get(`http://localhost:5000/notate/show?_id=${this.myUser.id}`, { headers: headers })
 			.pipe(map((data: any) => data))
 			.subscribe(data => {
+				console.log(data);
+				
 				this.userNotates = data
 			})
 	}

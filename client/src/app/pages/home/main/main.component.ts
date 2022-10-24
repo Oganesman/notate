@@ -1,6 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { map } from 'rxjs';
 import { HomeService } from 'src/app/service/home/home.service';
 import { NotateStateService } from 'src/app/service/notate-state/notate-state.service';
 

@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NotateEditComponent } from './modals/notate-edit/notate-edit.component';
+import { MainNotateComponent } from './pages/home/main/main-notate/main-notate.component';
 
 
 const routers: Routes = [
@@ -49,6 +50,7 @@ const routers: Routes = [
 		SidebarComponent,
 		MainComponent,
 		NotateEditComponent,
+  MainNotateComponent,
 	],
 	imports: [
 		BrowserModule,

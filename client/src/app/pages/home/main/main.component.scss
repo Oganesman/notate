@@ -44,7 +44,7 @@
 	font-size: 14px;
 }
 
-// !BOX NOTATE
+// Main Notate
 .main-notate {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -52,13 +52,7 @@
 	width: 100%;
 	max-width: 1040px;
 	margin: 0 auto 16px auto;
-	& > .notate-item {
-		direction: ltr;
-	}
-	&,
-	& > .notate-item {
-		transform: rotate(180deg);
-	}
+	transform: rotate(180deg);
 	@include w_1120 {
 		grid-template-columns: repeat(3, minmax(240px, 260px));
 		justify-content: space-around;
@@ -71,64 +65,11 @@
 		justify-content: center;
 	}
 }
-
-.notate-item {
-	position: relative;
-	overflow: hidden;
-	max-width: 240px;
-	cursor: default;
-	width: 100%;
-	border-radius: 20px;
-	text-align: left;
-	margin: 8px;
-	color: #000;
-	&:hover {
-		transition: 0.3s;
-		box-shadow: 1px 1px 5px 2px rgb(60 64 67 / 30%), 0 1px 1px 1px rgb(60 64 67 / 15%);
-		.notate-settings {
-			transition: 0.3s;
-			max-height: 34px;
-		}
-	}
-	@include w_600 {
-		max-width: inherit;
-		margin: 8px 0;
-	}
+.main-notate__component {
+	display: inherit;
 }
 
-.notate-scroll {
-	overflow: auto;
-	padding: 10px 5px 40px 10px;
-	max-height: 200px;
-	min-height: 110px;
-}
-
-.notate__title {
-	white-space: pre-wrap;
-	font-family: "Ubuntu", sans-serif;
-	font-size: 16px;
-	font-weight: 700;
-	margin: 0 0 5px;
-	letter-spacing: 1.5px;
-}
-
-.notate__description {
-	white-space: pre-wrap;
-	font-family: "Montserrat", sans-serif;
-	font-size: 14px;
-}
-
-// settings
-.notate-settings {
-	transition: 0.3s;
-	box-shadow: 0px 0px 9px 10px transparent;
-	background-color: transparent;
-	position: absolute;
-	bottom: 0px;
-	max-height: 0.1px;
-	height: 100%;
-	width: 100%;
-}
+// setings notate
 .settings-items {
 	display: flex;
 	justify-content: space-around;
@@ -153,6 +94,7 @@
 		width: 20px;
 	}
 }
+
 //! dont up
 .writeNotate {
 	.main-write__field:first-child {
