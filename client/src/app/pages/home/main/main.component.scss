@@ -45,6 +45,17 @@
 }
 
 // Main Notate
+.state-notate {
+	color: #5f6368;
+	font-size: 12px;
+	line-height: 1rem;
+	text-transform: uppercase;
+	font-family: "Montserrat", sans-serif;
+	letter-spacing: 1px;
+	max-width: 1040px;
+	margin: 0 0 16px 5%;
+}
+
 .main-notate {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

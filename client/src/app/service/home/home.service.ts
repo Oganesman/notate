@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FlashMessagesService } from 'flash-messages-angular';
 import { map } from 'rxjs';
+import { NotateStateService } from '../notate-state/notate-state.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -65,10 +66,16 @@ export class HomeService {
 		headers.append('Content-Type', 'application/json')
 		this.http.get(`http://localhost:5000/notate/show?_id=${this.myUser.id}`, { headers: headers })
 			.pipe(map((data: any) => data))
-			.subscribe(data => {
-				console.log(data);
-				
+			.subscribe((data: any) => {
+				//add all notate
 				this.userNotates = data
+				//add fixed notate
+				this.userFixedNotates = []
+				data.map((el: any) => {
+					if (el.fixed) {
+						this.userFixedNotates.push(el)
+					}
+				})
 			})
 	}
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeService } from 'src/app/service/home/home.service';
+import { NotateStateService } from 'src/app/service/notate-state/notate-state.service';
 
 @Component({
 	selector: 'app-home',
@@ -8,7 +9,7 @@ import { HomeService } from 'src/app/service/home/home.service';
 })
 export class HomeComponent {
 
-	constructor(public hs: HomeService) {
+	constructor(public hs: HomeService, private ns: NotateStateService) {
 		this.hs.myUser = JSON.parse(localStorage.getItem('user') || '{}')
 		this.hs.showNotates()
 	}
