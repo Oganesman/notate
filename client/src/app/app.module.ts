@@ -21,6 +21,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NotateEditComponent } from './modals/notate-edit/notate-edit.component';
 import { MainNotateComponent } from './pages/home/main/main-notate/main-notate.component';
+import { NotateTabComponent } from './pages/home/main/notate-tab/notate-tab.component';
 
 
 const routers: Routes = [
@@ -51,6 +52,7 @@ const routers: Routes = [
 		MainComponent,
 		NotateEditComponent,
   MainNotateComponent,
+  NotateTabComponent,
 	],
 	imports: [
 		BrowserModule,

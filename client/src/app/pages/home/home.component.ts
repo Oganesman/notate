@@ -19,7 +19,6 @@ export class HomeComponent {
 			e.target.localName == "notate-edit"
 		) {
 			this.hs.updateNotate()
-			document.body.style.overflow = 'auto'
 			return this.hs.showEditModal = !this.hs.showEditModal
 		} else {
 			return false

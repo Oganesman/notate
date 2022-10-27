@@ -81,6 +81,9 @@ export class HomeService {
 
 	// update Notate
 	updateNotate() {
+		// add scroll for page
+		document.body.style.overflow = 'auto'
+		//update notate
 		const newEdit = {
 			title: this.notateInfo.title,
 			description: this.notateInfo.description,

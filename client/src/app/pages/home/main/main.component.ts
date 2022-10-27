@@ -1,7 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { HomeService } from 'src/app/service/home/home.service';
-import { NotateStateService } from 'src/app/service/notate-state/notate-state.service';
 
 @Component({
 	selector: 'home-main',
@@ -9,12 +6,11 @@ import { NotateStateService } from 'src/app/service/notate-state/notate-state.se
 	styleUrls: ['./main.component.scss']
 })
 
-export class MainComponent{
-	constructor(public hs: HomeService, private http: HttpClient, public ns: NotateStateService) {
+export class MainComponent {
+	constructor() {
 	}
 
-	Undo() { document.execCommand("undo", false, 'null') }
-	Redo() { document.execCommand("redo", false, 'null') }
+
 }
 
 
