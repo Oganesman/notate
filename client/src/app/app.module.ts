@@ -20,8 +20,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { NotateEditComponent } from './modals/notate-edit/notate-edit.component';
-import { MainNotateComponent } from './pages/home/main/main-notate/main-notate.component';
+import { MainNotateComponent } from './pages/home/main/notate-tab/main-notate/main-notate.component';
 import { NotateTabComponent } from './pages/home/main/notate-tab/notate-tab.component';
+import { TrashTabComponent } from './pages/home/main/trash-tab/trash-tab.component';
 
 
 const routers: Routes = [
@@ -31,13 +32,6 @@ const routers: Routes = [
 	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticateGuard] },
 ]
 
-
-// const modules = [
-// 	MatButtonModule,
-// 	MatFormFieldModule,
-// 	MatInputModule,
-// 	MatRippleModule
-// ];
 
 @NgModule({
 	declarations: [
@@ -51,8 +45,9 @@ const routers: Routes = [
 		SidebarComponent,
 		MainComponent,
 		NotateEditComponent,
-  MainNotateComponent,
-  NotateTabComponent,
+		MainNotateComponent,
+		NotateTabComponent,
+  TrashTabComponent,
 	],
 	imports: [
 		BrowserModule,
