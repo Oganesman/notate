@@ -18,7 +18,8 @@
 				<img src="assets/icon/notification.svg" alt="">
 			</div>
 			<div (click)="ns.fixedNotate(notate)" class="settings-items__item info">
-				<img src="assets/icon/more.svg" alt="">
+				<img *ngIf="notate.fixed" src="assets/icon/fixed.svg" alt="">
+				<img *ngIf="!notate.fixed" src="assets/icon/nofixed.svg" alt="">
 			</div>
 			<div (click)="hs.mainChangeColor(notate)" class="settings-items__item info">
 				<img src="assets/icon/palitra.svg" alt="">
