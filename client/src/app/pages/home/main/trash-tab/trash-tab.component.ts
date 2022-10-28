@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { HomeService } from 'src/app/service/home/home.service';
 
 @Component({
   selector: 'trash-tab',
   templateUrl: './trash-tab.component.html',
   styleUrls: ['./trash-tab.component.scss']
 })
-export class TrashTabComponent implements OnInit {
+export class TrashTabComponent{
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(public hs:HomeService) { }
 }

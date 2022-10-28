@@ -48,17 +48,6 @@ router.patch('/update', async (req, res) => {
 	}
 })
 
-// delete
-router.delete('/delete', async (req, res) => {
-	try {
-		const id = req.query
-		await notateSchema.findByIdAndDelete(id)
-		res.status(200).json('notate success deleted')
-	} catch (err) {
-		return res.status(500).json(err)
-	}
-})
-
 // change background color
 router.post('/background', async (req, res) => {
 	try {
@@ -88,6 +77,47 @@ router.post('/fixed', async (req, res) => {
 		return res.status(500).json(err)
 	}
 })
+
+router.post('/remove', async (req, res) => {
+	try {
+		const { id, removeState } = req.body
+		console.log(id);
+		console.log(removeState);
+
+		await notateSchema.updateOne({ _id: id }, {
+			$set: {
+				removeState: removeState
+			}
+		})
+		res.status(200).json('notate remove')
+	} catch (err) {
+		return res.status(500).json('don\'t remove')
+	}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// delete
+// router.delete('/delete', async (req, res) => {
+// 	try {
+// 		const id = req.query
+// 		await notateSchema.findByIdAndDelete(id)
+// 		res.status(200).json('notate success deleted')
+// 	} catch (err) {
+// 		return res.status(500).json(err)
+// 	}
+// })
 
 //all notates
 // router.get('/fetch/notates', async (req, res) => {

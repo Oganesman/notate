@@ -1,1 +1,7 @@
-<p>trash-tab works!</p>
+<h1 class="state-notate">Notes are removed from the trash after 7 days.</h1>
+<div *ngIf="hs.userRemoveNotate.length" class="main-notate">
+	<ng-container *ngFor="let notate of hs.userRemoveNotate">
+		<main-notate class="main-notate__component" [notate]="notate">
+		</main-notate>
+	</ng-container>
+</div>

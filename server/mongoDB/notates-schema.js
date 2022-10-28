@@ -15,6 +15,9 @@ const NotatesSchema = mongoose.Schema({
 	},
 	fixed:{
 		type: Boolean
+	},
+	removeState:{
+		type: Boolean
 	}
 })
 

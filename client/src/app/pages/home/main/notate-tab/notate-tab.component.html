@@ -44,12 +44,11 @@
 			</div>
 		</div>
 
-
 		<!--?Fixer Notate -->
 		<h1 class="state-notate" *ngIf="hs.userFixedNotates.length">FIXED</h1>	
 		<div *ngIf="hs.userFixedNotates.length" class="main-notate">
-			<ng-container *ngFor="let notate of hs.userNotates">
-				<main-notate *ngIf="notate.fixed" class="main-notate__component" [notate]="notate">
+			<ng-container *ngFor="let notate of hs.userFixedNotates">
+				<main-notate class="main-notate__component" [notate]="notate">
 				</main-notate>
 			</ng-container>
 		</div>
@@ -57,8 +56,8 @@
 		<!--?Simple Notate -->
 		<h1 class="state-notate" *ngIf="hs.userFixedNotates.length">OTHER NOTES</h1>
 		<div class="main-notate">
-			<ng-container *ngFor="let notate of hs.userNotates">
-				<main-notate *ngIf="!notate.fixed" class="main-notate__component" [notate]="notate">
+			<ng-container *ngFor="let notate of hs.userSimpleNotates">
+				<main-notate class="main-notate__component" [notate]="notate">
 				</main-notate>
 			</ng-container>
 		</div>

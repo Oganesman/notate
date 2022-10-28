@@ -13,10 +13,14 @@ export class HomeService {
 	showLoggoutModal: boolean = false;
 	showEditModal: boolean = false;
 	public notateInfo: any
-	//show notates ngFor
-	public userNotates: any = []
-	//show notates for FIxed
+	//all notates
+	public userAllNotates: any = []
+	//show notates for Simple
+	public userSimpleNotates: any = []
+	//show notates for Fixed
 	public userFixedNotates: any = []
+	//show notates for Remove
+	public userRemoveNotate: any = []
 	// bacground Number for notate writing block
 	public writingBlockBg: number
 	// bacground Number for notate main and modal
@@ -34,7 +38,7 @@ export class HomeService {
 	changeTab(tab: string) {
 		this.tabShow = tab
 		console.log(this.tabShow);
-		
+
 	}
 
 	// modal edit notate
@@ -73,17 +77,27 @@ export class HomeService {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
 		this.http.get(`http://localhost:5000/notate/show?_id=${this.myUser.id}`, { headers: headers })
-			.pipe(map((data: any) => data))
 			.subscribe((data: any) => {
-				//add all notate
-				this.userNotates = data
-				//add fixed notate
+				//null
+				this.userRemoveNotate = []
+				this.userSimpleNotates = []
 				this.userFixedNotates = []
+				// map
+				this.userAllNotates = data
 				data.map((el: any) => {
-					if (el.fixed) {
+					if (el.removeState) {
+						this.userRemoveNotate.push(el)
+					} else if (el.fixed) {
 						this.userFixedNotates.push(el)
+					} else if (!el.fixed) {
+						this.userSimpleNotates.push(el)
 					}
 				})
+
+				console.log(this.userRemoveNotate);
+				console.log(this.userSimpleNotates);
+				console.log(this.userFixedNotates);
+				
 			})
 	}
 
@@ -128,16 +142,16 @@ export class HomeService {
 		}
 	}
 	// delete Notate
-	deleteNotate(id: string) {
-		let headers = new HttpHeaders()
-		headers.append('Content-Type', 'application/json')
-		this.http.delete(`http://localhost:5000/notate/delete?_id=${id}`)
-			.pipe(map(data => data))
-			.subscribe(data => {
-				this.showNotates()
-				this.showEditModal = false
-			})
-	}
+	// deleteNotate(id: string) {
+	// 	let headers = new HttpHeaders()
+	// 	headers.append('Content-Type', 'application/json')
+	// 	this.http.delete(`http://localhost:5000/notate/delete?_id=${id}`)
+	// 		.pipe(map(data => data))
+	// 		.subscribe(data => {
+	// 			this.showNotates()
+	// 			this.showEditModal = false
+	// 		})
+	// }
 
 	// change Background Color Notate for writing block
 	writingChangeColor() {
@@ -147,12 +161,12 @@ export class HomeService {
 
 	// change Background Color Notate for main page
 	mainChangeColor(notate: any) {
-		this.userNotates.map((el: any) => {
+		this.userAllNotates.map((el: any) => {
 			if (el._id == notate._id) {
 				el.background = notate.background == 6 ? 0 : notate.background += 1
 			}
 		})
-		const { _id, background } = this.userNotates.find((el: any) => {
+		const { _id, background } = this.userAllNotates.find((el: any) => {
 			if (el._id == notate._id) {
 				return el
 			}
