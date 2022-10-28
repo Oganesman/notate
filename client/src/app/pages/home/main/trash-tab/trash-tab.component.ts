@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-trash-tab',
+  selector: 'trash-tab',
   templateUrl: './trash-tab.component.html',
   styleUrls: ['./trash-tab.component.scss']
 })
