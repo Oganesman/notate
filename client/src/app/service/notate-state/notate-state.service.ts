@@ -6,8 +6,10 @@ import { HomeService } from '../home/home.service';
 	providedIn: 'root'
 })
 export class NotateStateService {
+
 	constructor(private http: HttpClient, private hs: HomeService) {
 	}
+
 	// fixed notate
 	fixedNotate(notate: any) {
 		const fixedNotate = {

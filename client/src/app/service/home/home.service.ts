@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FlashMessagesService } from 'flash-messages-angular';
 import { map } from 'rxjs';
-import { NotateStateService } from '../notate-state/notate-state.service';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class HomeService {
+	//change tab
+	public tabShow: string = 'notate'
 	//modalka
 	showLoggoutModal: boolean = false;
 	showEditModal: boolean = false;
@@ -28,6 +29,13 @@ export class HomeService {
 	public myUser: any
 
 	constructor(private http: HttpClient, private fm: FlashMessagesService) { }
+
+	// change tab
+	changeTab(tab: string) {
+		this.tabShow = tab
+		console.log(this.tabShow);
+		
+	}
 
 	// modal edit notate
 	notateEdit(notate: any) {
@@ -176,4 +184,5 @@ export class HomeService {
 			.subscribe(data => {
 			})
 	}
+
 }

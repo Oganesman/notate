@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomeService } from 'src/app/service/home/home.service';
 
 @Component({
 	selector: 'home-main',
@@ -8,8 +9,7 @@ import { Component } from '@angular/core';
 
 export class MainComponent {
 
-	public tabShow: string = 'notate'
-	constructor() {
+	constructor(public hs: HomeService) {
 		
 	}
 

@@ -2,23 +2,33 @@
 	<nav class="nav">
 		<div class="nav-container">
 			<div class="nav-list">
-				<div role="button" class="nav-list__icon hover-color">
+				<div role="button" class="nav-list__icon" 
+				[class.hover-color]="hs.tabShow == 'notate'"
+				(click)="hs.changeTab('notate')">
 					<img src="assets/aside/check.svg" alt="">
 					<span class="nav-list__text"> Notate </span>
 				</div>
-				<div role="button" class="nav-list__icon">
+				<div role="button" class="nav-list__icon"
+				[class.hover-color]="hs.tabShow == 'notifications'"
+				(click)="hs.changeTab('notifications')">
 					<img src="assets/aside/notification.svg" alt="">
 					<span class="nav-list__text"> Notifications </span>
 				</div>
-				<div role="button" class="nav-list__icon">
+				<div role="button" class="nav-list__icon "
+				[class.hover-color]="hs.tabShow == 'changes'"
+				(click)="hs.changeTab('changes')">
 					<img src="assets/aside/change.svg" alt="">
-					<span class="nav-list__text"> Changes </span>
+					<span class="nav-list__text ml-13">Changes </span>
 				</div>
-				<div role="button" class="nav-list__icon">
+				<div role="button" class="nav-list__icon"
+				[class.hover-color]="hs.tabShow == 'archives'"
+				(click)="hs.changeTab('archives')">
 					<img src="assets/aside/archive.svg" alt="">
 					<span class="nav-list__text"> Archives </span>
 				</div>
-				<div role="button" class="nav-list__icon">
+				<div role="button" class="nav-list__icon"
+				[class.hover-color]="hs.tabShow == 'trash'"
+				(click)="hs.changeTab('trash')">
 					<img src="assets/aside/trash.svg" alt="">
 					<span class="nav-list__text"> Trash </span>
 				</div>

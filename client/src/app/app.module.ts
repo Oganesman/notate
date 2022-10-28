@@ -23,6 +23,9 @@ import { NotateEditComponent } from './modals/notate-edit/notate-edit.component'
 import { MainNotateComponent } from './pages/home/main/notate-tab/main-notate/main-notate.component';
 import { NotateTabComponent } from './pages/home/main/notate-tab/notate-tab.component';
 import { TrashTabComponent } from './pages/home/main/trash-tab/trash-tab.component';
+import { ArchivesTabComponent } from './pages/home/main/archives-tab/archives-tab.component';
+import { ChangesTabComponent } from './pages/home/main/changes-tab/changes-tab.component';
+import { NotificationsTabComponent } from './pages/home/main/notifications-tab/notifications-tab.component';
 
 
 const routers: Routes = [
@@ -47,7 +50,10 @@ const routers: Routes = [
 		NotateEditComponent,
 		MainNotateComponent,
 		NotateTabComponent,
-  TrashTabComponent,
+		TrashTabComponent,
+		ArchivesTabComponent,
+		ChangesTabComponent,
+  NotificationsTabComponent,
 	],
 	imports: [
 		BrowserModule,

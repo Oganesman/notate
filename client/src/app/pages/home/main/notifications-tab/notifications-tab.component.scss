@@ -1,0 +1,28 @@
+.wrapper {
+	height: 90%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.block {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.block-image {
+	margin: 0 0 60px;
+	img {
+		filter: opacity(0.3);
+		width: 200px;
+		height: 200px;
+	}
+}
+
+.block-text{
+	font-size: 26px;
+	letter-spacing: 1px;
+	color: #80868b;
+}

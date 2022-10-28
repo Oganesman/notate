@@ -1,3 +1,5 @@
-<notate-tab *ngIf="tabShow == 'notate'"></notate-tab>
-
-<trash-tab *ngIf="tabShow == 'trash'"></trash-tab>
+<notate-tab *ngIf="hs.tabShow == 'notate'"></notate-tab>
+<notifications-tab *ngIf="hs.tabShow == 'notifications'"></notifications-tab>
+<changes-tab *ngIf="hs.tabShow == 'changes'"></changes-tab>
+<archives-tab *ngIf="hs.tabShow == 'archives'"></archives-tab>
+<trash-tab *ngIf="hs.tabShow == 'trash'"></trash-tab>
