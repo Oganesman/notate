@@ -10,5 +10,6 @@ export class AppComponent {
  	constructor(private ts: TranslateService) {
 		this.ts.setDefaultLang('en')
 		this.ts.use(localStorage.getItem('lang') || 'en')
+		
 	}
 }

@@ -20,7 +20,7 @@
 					</pre>
 					<!-- icon -->
 					<div class="settings-items click-out" [class.writeNotate]="!hs.writing">
-						<div data-tooltip="Notification" class="settings-items__item info click-out">
+						<div data-tooltip="Notifications" class="settings-items__item info click-out">
 							<img class="image" src="assets/icon/notification.svg" alt="">
 						</div>
 						<div data-tooltip="More" class="settings-items__item info click-out">
@@ -55,11 +55,16 @@
 
 		<!--?Simple Notate -->
 		<h1 class="state-notate" *ngIf="hs.userFixedNotates.length">OTHER NOTES</h1>
-		<div class="main-notate">
+		<div *ngIf="hs.userSimpleNotates.length" class="main-notate">
 			<ng-container *ngFor="let notate of hs.userSimpleNotates">
 				<main-notate class="main-notate__component" [notate]="notate">
 				</main-notate>
 			</ng-container>
+		</div>
+
+		<!-- ?No any Notate -->
+		<div *ngIf="!hs.userSimpleNotates.length && !hs.userFixedNotates.length" class="state-notate__none">
+			Сome on baby come up with something
 		</div>
 
 	</div>

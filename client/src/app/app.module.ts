@@ -73,11 +73,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 		MatInputModule,
 		TranslateModule.forRoot({
 			loader: {
-				provide: TranslateLoader,
-				useFactory: HttpLoaderFactory,
-				deps: [HttpClient]
+				 provide: TranslateLoader,
+				 useFactory: HttpLoaderFactory,
+				 deps: [HttpClient]
 			}
-		})
+	  })
 	],
 	providers: [],
 	bootstrap: [AppComponent]

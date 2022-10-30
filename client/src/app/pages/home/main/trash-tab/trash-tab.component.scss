@@ -20,6 +20,7 @@
 	letter-spacing: 1px;
 	max-width: 1040px;
 	text-align: center;
+	padding: 0 15px;
 	@include w_600 {
 		font-size: 12px;
 	}
@@ -201,6 +202,7 @@
 	letter-spacing: 1px;
 	color: #80868b;
 	text-align: center;
+	padding: 0 15px;
 	@include w_600 {
 		font-size: 20px;
 	}

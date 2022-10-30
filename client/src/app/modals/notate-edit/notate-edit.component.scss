@@ -1,4 +1,5 @@
 @import '../../../scss/background-notate.scss';
+@import '../../../scss/data-tooltip.scss';
 
 
 // placeholder for title
@@ -29,7 +30,6 @@
 }
 
 .edit-content {
-	overflow: hidden;
 	padding-right: 1px;
 	width: 600px;
 	min-height: 180px;
@@ -39,7 +39,6 @@
 	grid-template-rows: 1fr 40px;
 	box-shadow: 2px 4px 7px 4px rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
 }
-
 
 .edit-block {
 	padding: 0 14px;

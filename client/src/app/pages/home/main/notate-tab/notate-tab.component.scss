@@ -107,6 +107,23 @@
 	}
 }
 
+// no notate
+.state-notate__none {
+	margin-top: 10%;
+	font-size: 26px;
+	letter-spacing: 1px;
+	color: #80868b;
+	text-align: center;
+	padding: 0 15px;
+	@include w_900 {
+		margin-top: 20%;
+	}
+	@include w_600 {
+		font-size: 20px;
+		margin-top: 30%;
+	}
+}
+
 //! dont up
 .writeNotate {
 	.main-write__field:first-child {

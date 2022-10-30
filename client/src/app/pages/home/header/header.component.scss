@@ -41,7 +41,7 @@
 		border-right: 1px solid #d5c4c4;
 		border-left: 1px solid #d5c4c4;
 	}
-	@include w_400{
+	@include w_400 {
 		grid-template-columns: 56px 1fr 125px;
 	}
 }
@@ -50,7 +50,6 @@
 	display: grid;
 	grid-template-columns: 56px 1fr;
 	align-items: center;
-	
 }
 .content-burger__button {
 	grid-column: 1/2;
@@ -74,7 +73,7 @@
 		height: 40px;
 		margin-right: 8px;
 	}
-	@include w_400{
+	@include w_400 {
 		display: none;
 	}
 }
@@ -148,6 +147,13 @@
 	@include w_600 {
 		display: none;
 	}
+}
+
+.content-search__lang {
+	cursor: pointer;
+	outline: none;
+	border: none;
+	margin-left: 15px;
 }
 // ? ICONS
 .content-icons {

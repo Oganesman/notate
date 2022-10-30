@@ -13,7 +13,7 @@
 			<button class="content-search__img content-search__start">
 				<img src="assets/header/loop.svg" alt="">
 			</button>
-			<input class="content-search__input" type="text" placeholder="Поиск">
+			<input class="content-search__input" type="text" placeholder="Search..">
 			<button class="content-search__img content-search__end">
 				<img src="assets/header/cross.svg" alt="">
 			</button>
@@ -23,6 +23,10 @@
 			<button class="bg-gray icon none"><img src="assets/header/status.svg" alt=""></button>
 			<button class="bg-gray icon none"><img src="assets/header/sett.svg" alt=""></button>
 		</div> -->
+		<select class="content-search__lang" (change)="changeLang($event.target)">
+			<option value="en" [selected]="lang == 'en'">English</option>
+			<option value="ukr" [selected]="lang == 'ukr'">Ukrainian</option>
+		</select>
 	</div>
 	<div class="content-settings">
 		<!-- <button class="bg-gray icon none"><img src="assets/header/service.svg" alt=""></button> -->
