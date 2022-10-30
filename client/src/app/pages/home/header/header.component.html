@@ -24,8 +24,8 @@
 			<button class="bg-gray icon none"><img src="assets/header/sett.svg" alt=""></button>
 		</div> -->
 		<select class="content-search__lang" (change)="changeLang($event.target)">
-			<option value="en" [selected]="lang == 'en'">English</option>
-			<option value="ukr" [selected]="lang == 'ukr'">Ukrainian</option>
+			<option value="en" [selected]="lang == 'en'">{{"English" | translate}}</option>
+			<option value="ukr" [selected]="lang == 'ukr'">{{"Ukrainian" | translate}}</option>
 		</select>
 	</div>
 	<div class="content-settings">

@@ -15,6 +15,7 @@
 	transform: rotate(180deg);
 	direction: ltr;
 	position: relative;
+	padding-top: 10px;
 
 	&:hover {
 		animation:overflow-visible 0s linear 1 alternate 0.3s forwards ;

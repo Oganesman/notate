@@ -28,6 +28,12 @@
 	}
 };
 
+@mixin w_760 { 
+	@media (max-width:760px) {
+		@content
+	}
+};
+
 @mixin w_600 { 
 	@media (max-width:600px) {
 		@content

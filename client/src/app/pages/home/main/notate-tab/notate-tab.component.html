@@ -45,7 +45,7 @@
 		</div>
 
 		<!--?Fixer Notate -->
-		<h1 class="state-notate" *ngIf="hs.userFixedNotates.length">FIXED</h1>	
+		<h1 class="state-notate" *ngIf="hs.userFixedNotates.length">{{"FIXED"| translate}}</h1>	
 		<div *ngIf="hs.userFixedNotates.length" class="main-notate">
 			<ng-container *ngFor="let notate of hs.userFixedNotates">
 				<main-notate class="main-notate__component" [notate]="notate">
@@ -54,7 +54,7 @@
 		</div>
 
 		<!--?Simple Notate -->
-		<h1 class="state-notate" *ngIf="hs.userFixedNotates.length">OTHER NOTES</h1>
+		<h1 class="state-notate" *ngIf="hs.userFixedNotates.length">{{"OTHER NOTES" | translate}}</h1>
 		<div *ngIf="hs.userSimpleNotates.length" class="main-notate">
 			<ng-container *ngFor="let notate of hs.userSimpleNotates">
 				<main-notate class="main-notate__component" [notate]="notate">
@@ -64,7 +64,7 @@
 
 		<!-- ?No any Notate -->
 		<div *ngIf="!hs.userSimpleNotates.length && !hs.userFixedNotates.length" class="state-notate__none">
-			Сome on baby come up with something
+			{{"Сome on baby come up with something" | translate}}
 		</div>
 
 	</div>

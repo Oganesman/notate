@@ -12,25 +12,25 @@
 				[class.hover-color]="hs.tabShow == 'notifications'"
 				(click)="hs.changeTab('notifications')">
 					<img src="assets/aside/notification.svg" alt="">
-					<span class="nav-list__text"> Notifications </span>
+					<span class="nav-list__text"> {{"Notifications" | translate}} </span>
 				</div>
 				<div role="button" class="nav-list__icon "
 				[class.hover-color]="hs.tabShow == 'changes'"
 				(click)="hs.changeTab('changes')">
 					<img src="assets/aside/change.svg" alt="">
-					<span class="nav-list__text ml-13">Changes </span>
+					<span class="nav-list__text ml-13">{{"Changes" | translate}} </span>
 				</div>
 				<div role="button" class="nav-list__icon"
 				[class.hover-color]="hs.tabShow == 'archives'"
 				(click)="hs.changeTab('archives')">
 					<img src="assets/aside/archive.svg" alt="">
-					<span class="nav-list__text"> Archives </span>
+					<span class="nav-list__text"> {{"Archives" | translate}} </span>
 				</div>
 				<div role="button" class="nav-list__icon"
 				[class.hover-color]="hs.tabShow == 'trash'"
 				(click)="hs.changeTab('trash')">
 					<img src="assets/aside/trash.svg" alt="">
-					<span class="nav-list__text"> Trash </span>
+					<span class="nav-list__text"> {{"Trash" | translate}} </span>
 				</div>
 			</div>
 			<!-- <div class="nav-license">
