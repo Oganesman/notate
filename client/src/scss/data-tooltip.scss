@@ -1,9 +1,9 @@
-*[data-tooltip] {
+*[title] {
 	position: relative;
 }
 
-*[data-tooltip]::after {
-	content: attr(data-tooltip);
+*[title]::after {
+	content: attr(title);
 
 	position: absolute;
 	bottom: -34px;
@@ -30,6 +30,6 @@
 
 }
 
-*[data-tooltip]:hover::after {
+*[title]:hover::after {
 	opacity: 1;
 }

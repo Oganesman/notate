@@ -107,6 +107,12 @@
 	}
 }
 
+.ds-n {
+	@include w_400 {
+		display: none;
+	}
+}
+
 // no notate
 .state-notate__none {
 	margin-top: 10%;

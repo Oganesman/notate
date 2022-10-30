@@ -19,10 +19,10 @@
 			<!-- icon -->
 			<div class="notate-settings">
 				<div class="settings-items">
-					<div data-tooltip="Delete" class="settings-items__item info" (click)="ns.deleteNotate(notate._id)">
+					<div [title]="'Delete' | translate" class="settings-items__item info" (click)="ns.deleteNotate(notate._id)">
 						<img src="assets/main/trash/delete.svg" alt="">
 					</div>
-					<div data-tooltip="Reestablish" class="settings-items__item info" (click)="ns.removeNotate(notate)">
+					<div [title]="'Reestablish' | translate" class="settings-items__item info" (click)="ns.removeNotate(notate)">
 						<img src="assets/main/trash/reestablish.svg" alt="">
 					</div>
 				</div>

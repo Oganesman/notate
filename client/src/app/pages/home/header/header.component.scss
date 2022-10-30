@@ -41,7 +41,7 @@
 		border-right: 1px solid #d5c4c4;
 		border-left: 1px solid #d5c4c4;
 	}
-	@include w_400 {
+	@include w_500 {
 		grid-template-columns: 56px 1fr 125px;
 	}
 }
@@ -73,7 +73,7 @@
 		height: 40px;
 		margin-right: 8px;
 	}
-	@include w_400 {
+	@include w_500 {
 		display: none;
 	}
 }
@@ -93,6 +93,9 @@
 	flex: 1 1 auto;
 	@include w_600 {
 		background-color: transparent;
+	}
+	@include w_400 {
+		display: none;
 	}
 }
 .content-search__img {
@@ -154,6 +157,10 @@
 	outline: none;
 	border: none;
 	margin-left: 15px;
+	@include w_400 {
+		margin-left: 0;
+
+	}
 }
 // ? ICONS
 .content-icons {

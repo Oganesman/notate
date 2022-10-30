@@ -1,6 +1,6 @@
-@import '../../../scss/background-notate.scss';
-@import '../../../scss/data-tooltip.scss';
-
+@import "../../../scss/background-notate.scss";
+@import "../../../scss/data-tooltip.scss";
+@import "../../../scss/media.scss";
 
 // placeholder for title
 [contenteditable="true"]:empty:not(:focus):before {
@@ -27,17 +27,22 @@
 .edit {
 	position: absolute;
 	top: 10%;
+	max-width: 630px;
+	width: 100%;
+	padding: 0px 30px;
 }
 
 .edit-content {
 	padding-right: 1px;
-	width: 600px;
 	min-height: 180px;
 	border-radius: 8px;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 40px;
 	box-shadow: 2px 4px 7px 4px rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+	@include w_500 {
+		grid-template-rows: 1fr 70px;
+	}
 }
 
 .edit-block {
@@ -80,14 +85,20 @@
 	grid-row: 2/3;
 	height: 40px;
 	box-shadow: 0 -1px 6px rgb(0 0 0 / 20%);
-	display: flex;
 	justify-content: space-between;
+	@include w_500 {
+		flex-direction: column;
+		height: 70px;
+	}
 }
 
 // icon
 .nav-items {
 	flex: 1 0 auto;
 	display: flex;
+	@include w_500 {
+		flex: 0 0 auto;
+	}
 }
 .nav-items__item {
 	width: 34px;
@@ -113,6 +124,11 @@
 	}
 }
 
+.ds-n {
+	@include w_400 {
+		display: none;
+	}
+}
 //button
 .nav-close {
 	cursor: pointer;
@@ -132,5 +148,4 @@
 }
 
 .nav-close__text {
-	
 }

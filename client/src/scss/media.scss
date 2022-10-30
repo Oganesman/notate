@@ -40,6 +40,12 @@
 	}
 };
 
+@mixin w_500 { 
+	@media (max-width:500px) {
+		@content
+	}
+};
+
 @mixin w_400 { 
 	@media (max-width:400px) {
 		@content

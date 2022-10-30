@@ -17,22 +17,22 @@
 		<div class="nav">
 			<!-- icons -->
 			<div class="nav-items">
-				<div data-tooltip="Notifications" class="nav-items__item info">
+				<div [title]="'Notifications' | translate" class="nav-items__item info ds-n">
 					<img src="assets/icon/notification.svg" alt="">
 				</div>
-				<div data-tooltip="More" class="nav-items__item info">
+				<div [title]="'More' | translate" class="nav-items__item info ds-n">
 					<img src="assets/icon/more.svg" alt="">
 				</div>
-				<div data-tooltip="Pallete" (click)="hs.modalChangeColor()" class="nav-items__item info">
+				<div [title]="'Palette' | translate" (click)="hs.modalChangeColor()" class="nav-items__item info">
 					<img src="assets/icon/palitra.svg" alt="">
 				</div>
-				<div data-tooltip="Cancel" class="nav-items__item info" (click)="Undo()">
+				<div [title]="'Cancel' | translate" class="nav-items__item info " (click)="Undo()">
 					<img src="assets/icon/arrow-left.svg" alt="">
 				</div>
-				<div data-tooltip="Repeat" class="nav-items__item info" (click)="Redo()">
+				<div [title]="'Repeat' | translate" class="nav-items__item info " (click)="Redo()">
 					<img src="assets/icon/arrow-right.svg" alt="">
 				</div>
-				<div data-tooltip="Trash" (click)="ns.removeNotate(hs.notateInfo)" class="nav-items__item info">
+				<div [title]="'Trash' | translate" (click)="ns.removeNotate(hs.notateInfo)" class="nav-items__item info">
 					<img src="assets/icon/trash.svg" alt="">
 				</div>
 			</div>

@@ -34,6 +34,9 @@
 	@include w_1350 {
 		border-left: 1px solid #d5c4c4;
 	}
+	@include w_400 {
+		width: 65px;
+	}
 }
 
 .nav-list {

@@ -20,22 +20,23 @@
 					</pre>
 					<!-- icon -->
 					<div class="settings-items click-out" [class.writeNotate]="!hs.writing">
-						<div data-tooltip="Notifications" class="settings-items__item info click-out">
+						<div [title]="'Notifications' | translate" class="settings-items__item info click-out ds-n">
 							<img class="image" src="assets/icon/notification.svg" alt="">
 						</div>
-						<div data-tooltip="More" class="settings-items__item info click-out">
+						<div [title]="'More' | translate" class="settings-items__item info click-out ds-n">
 							<img class="image" src="assets/icon/more.svg" alt="">
 						</div>
-						<div data-tooltip="Palette" (click)="hs.writingChangeColor()" class="settings-items__item info click-out">
+						<div [title]="'Palette' | translate" (click)="hs.writingChangeColor()"
+							class="settings-items__item info click-out">
 							<img class="image" src="assets/icon/palitra.svg" alt="">
 						</div>
-						<div data-tooltip="Cancel" class="settings-items__item info click-out" (click)="Undo()">
+						<div [title]="'Cancel' | translate" class="settings-items__item info click-out" (click)="Undo()">
 							<img class="image" src="assets/icon/arrow-left.svg" alt="">
 						</div>
-						<div data-tooltip="Repeat" class="settings-items__item info click-out" (click)="Redo()">
+						<div [title]="'Repeat' | translate" class="settings-items__item info click-out" (click)="Redo()">
 							<img class="image" src="assets/icon/arrow-right.svg" alt="">
 						</div>
-						<div data-tooltip="Trash" class="settings-items__item info">
+						<div [title]="'Trash' | translate" class="settings-items__item info">
 							<img class="trash" src="assets/icon/trash.svg" alt="">
 						</div>
 					</div>
@@ -45,7 +46,7 @@
 		</div>
 
 		<!--?Fixer Notate -->
-		<h1 class="state-notate" *ngIf="hs.userFixedNotates.length">{{"FIXED"| translate}}</h1>	
+		<h1 class="state-notate" *ngIf="hs.userFixedNotates.length">{{"Fixed"| translate}}</h1>
 		<div *ngIf="hs.userFixedNotates.length" class="main-notate">
 			<ng-container *ngFor="let notate of hs.userFixedNotates">
 				<main-notate class="main-notate__component" [notate]="notate">

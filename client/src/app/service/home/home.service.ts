@@ -22,7 +22,7 @@ export class HomeService {
 	//show notates for Remove
 	public userRemoveNotate: any = []
 	// bacground Number for notate writing block
-	public writingBlockBg: number
+	public writingBlockBg: number = 0
 	// bacground Number for notate main and modal
 	public modalBgColor: number
 	// click outside

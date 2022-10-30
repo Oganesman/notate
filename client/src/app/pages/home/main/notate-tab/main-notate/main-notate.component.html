@@ -14,17 +14,21 @@
 	<!-- icon -->
 	<div class="notate-settings">
 		<div class="settings-items">
-			<div data-tooltip="Notifications" class="settings-items__item info">
+			<div [title]="'Notifications' | translate" class="settings-items__item info">
 				<img src="assets/icon/notification.svg" alt="">
 			</div>
-			<div data-tooltip="Fixed" (click)="ns.fixedNotate(notate)" class="settings-items__item info">
-				<img *ngIf="notate.fixed" src="assets/icon/fixed.svg" alt="">
-				<img *ngIf="!notate.fixed" src="assets/icon/nofixed.svg" alt="">
+			<div *ngIf="notate.fixed" [title]="'Unfixed' | translate" (click)="ns.fixedNotate(notate)"
+				class="settings-items__item info">
+				<img src="assets/icon/fixed.svg" alt="">
 			</div>
-			<div data-tooltip="Palette" (click)="hs.mainChangeColor(notate)" class="settings-items__item info">
+			<div *ngIf="!notate.fixed" [title]="'Fixed' | translate" (click)="ns.fixedNotate(notate)"
+				class="settings-items__item info">
+				<img src="assets/icon/nofixed.svg" alt="">
+			</div>
+			<div [title]="'Palette' | translate" (click)="hs.mainChangeColor(notate)" class="settings-items__item info">
 				<img src="assets/icon/palitra.svg" alt="">
 			</div>
-			<div data-tooltip="Trash" (click)="ns.removeNotate(notate)" class="settings-items__item info">
+			<div [title]="'Trash' | translate" (click)="ns.removeNotate(notate)" class="settings-items__item info">
 				<img src="assets/icon/trash.svg" alt="">
 			</div>
 		</div>
