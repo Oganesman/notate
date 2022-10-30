@@ -1,7 +1,7 @@
 <div class="edit">
-	<div class="edit-content" [class.bg-0]="hs.modalBgColor == 0" [class.bg-1]="hs.modalBgColor == 1" [class.bg-2]="hs.modalBgColor == 2"
-		[class.bg-3]="hs.modalBgColor == 3" [class.bg-4]="hs.modalBgColor == 4" [class.bg-5]="hs.modalBgColor == 5"
-		[class.bg-6]="hs.modalBgColor == 6">
+	<div class="edit-content" [class.bg-0]="hs.modalBgColor == 0" [class.bg-1]="hs.modalBgColor == 1"
+		[class.bg-2]="hs.modalBgColor == 2" [class.bg-3]="hs.modalBgColor == 3" [class.bg-4]="hs.modalBgColor == 4"
+		[class.bg-5]="hs.modalBgColor == 5" [class.bg-6]="hs.modalBgColor == 6">
 		<div class="edit-block">
 			<!-- title -->
 			<pre class="edit-content__title field" #topicTitle contenteditable="true" [textContent]="hs.notateInfo.title"
@@ -17,22 +17,22 @@
 		<div class="nav">
 			<!-- icons -->
 			<div class="nav-items">
-				<div class="nav-items__item info">
+				<div data-tooltip="Notification" class="nav-items__item info">
 					<img src="assets/icon/notification.svg" alt="">
 				</div>
-				<div class="nav-items__item info">
+				<div data-tooltip="More" class="nav-items__item info">
 					<img src="assets/icon/more.svg" alt="">
 				</div>
-				<div (click)="hs.modalChangeColor()" class="nav-items__item info">
+				<div data-tooltip="Pallete" (click)="hs.modalChangeColor()" class="nav-items__item info">
 					<img src="assets/icon/palitra.svg" alt="">
 				</div>
-				<div class="nav-items__item info" (click)="Undo()">
+				<div data-tooltip="Cancel" class="nav-items__item info" (click)="Undo()">
 					<img src="assets/icon/arrow-left.svg" alt="">
 				</div>
-				<div class="nav-items__item info" (click)="Redo()">
+				<div data-tooltip="Repeat" class="nav-items__item info" (click)="Redo()">
 					<img src="assets/icon/arrow-right.svg" alt="">
 				</div>
-				<div (click)="ns.removeNotate(hs.notateInfo)" class="nav-items__item info">
+				<div data-tooltip="Trash" (click)="ns.removeNotate(hs.notateInfo)" class="nav-items__item info">
 					<img src="assets/icon/trash.svg" alt="">
 				</div>
 			</div>

@@ -1,5 +1,6 @@
 @import "../../../../../../scss/background-notate.scss";
 @import "../../../../../../scss/media.scss";
+@import "../../../../../../scss/data-tooltip.scss";
 
 .notate {
 	position: relative;
@@ -16,6 +17,7 @@
 	position: relative;
 
 	&:hover {
+		animation:overflow-visible 0s linear 1 alternate 0.3s forwards ;
 		transition: 0.3s;
 		box-shadow: 1px 1px 5px 2px rgb(60 64 67 / 30%), 0 1px 1px 1px rgb(60 64 67 / 15%);
 		.notate-settings {
@@ -26,6 +28,12 @@
 	@include w_600 {
 		max-width: inherit;
 		margin: 8px 0;
+	}
+}
+
+@keyframes overflow-visible {
+	100%{
+		overflow: visible;
 	}
 }
 

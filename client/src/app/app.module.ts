@@ -10,7 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'flash-messages-angular';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthenticateGuard } from './service/authenticate.guard';
 import { LoggoutModalComponent } from './modals/loggout-modal/loggout-modal.component';
 import { HeaderComponent } from './pages/home/header/header.component';
@@ -26,6 +26,8 @@ import { TrashTabComponent } from './pages/home/main/trash-tab/trash-tab.compone
 import { ArchivesTabComponent } from './pages/home/main/archives-tab/archives-tab.component';
 import { ChangesTabComponent } from './pages/home/main/changes-tab/changes-tab.component';
 import { NotificationsTabComponent } from './pages/home/main/notifications-tab/notifications-tab.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 const routers: Routes = [
@@ -34,6 +36,10 @@ const routers: Routes = [
 	{ path: 'auth', component: AuthComponent },
 	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticateGuard] },
 ]
+
+export function HttpLoaderFactory(http: HttpClient) {
+	return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -53,7 +59,7 @@ const routers: Routes = [
 		TrashTabComponent,
 		ArchivesTabComponent,
 		ChangesTabComponent,
-  NotificationsTabComponent,
+		NotificationsTabComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -64,7 +70,14 @@ const routers: Routes = [
 		FlashMessagesModule.forRoot(),
 		BrowserAnimationsModule,
 		MatFormFieldModule,
-		MatInputModule
+		MatInputModule,
+		TranslateModule.forRoot({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: HttpLoaderFactory,
+				deps: [HttpClient]
+			}
+		})
 	],
 	providers: [],
 	bootstrap: [AppComponent]

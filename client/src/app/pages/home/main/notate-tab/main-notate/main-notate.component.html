@@ -14,17 +14,17 @@
 	<!-- icon -->
 	<div class="notate-settings">
 		<div class="settings-items">
-			<div class="settings-items__item info">
+			<div data-tooltip="Notification" class="settings-items__item info">
 				<img src="assets/icon/notification.svg" alt="">
 			</div>
-			<div (click)="ns.fixedNotate(notate)" class="settings-items__item info">
+			<div data-tooltip="Fixed" (click)="ns.fixedNotate(notate)" class="settings-items__item info">
 				<img *ngIf="notate.fixed" src="assets/icon/fixed.svg" alt="">
 				<img *ngIf="!notate.fixed" src="assets/icon/nofixed.svg" alt="">
 			</div>
-			<div (click)="hs.mainChangeColor(notate)" class="settings-items__item info">
+			<div data-tooltip="Palette" (click)="hs.mainChangeColor(notate)" class="settings-items__item info">
 				<img src="assets/icon/palitra.svg" alt="">
 			</div>
-			<div (click)="ns.removeNotate(notate)" class="settings-items__item info">
+			<div data-tooltip="Trash" (click)="ns.removeNotate(notate)" class="settings-items__item info">
 				<img src="assets/icon/trash.svg" alt="">
 			</div>
 		</div>

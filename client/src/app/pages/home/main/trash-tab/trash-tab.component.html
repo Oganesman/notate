@@ -1,5 +1,5 @@
 <div class="state-notate">
-	<h1 class="state-notate__title">Notes are removed from the trash after 7 days.</h1>
+	<h1  class="state-notate__title">Notes are removed from the trash after 7 days.</h1>
 	<div *ngIf="hs.userRemoveNotate.length" class="state-notate__button" (click)="ns.deleteAllNotate()">Delete All</div>
 </div>
 
@@ -19,16 +19,17 @@
 			<!-- icon -->
 			<div class="notate-settings">
 				<div class="settings-items">
-					<div class="settings-items__item info" (click)="ns.deleteNotate(notate._id)">
+					<div data-tooltip="Delete" class="settings-items__item info" (click)="ns.deleteNotate(notate._id)">
 						<img src="assets/main/trash/delete.svg" alt="">
 					</div>
-					<div class="settings-items__item info" (click)="ns.removeNotate(notate)">
+					<div data-tooltip="Reestablish" class="settings-items__item info" (click)="ns.removeNotate(notate)">
 						<img src="assets/main/trash/reestablish.svg" alt="">
 					</div>
 				</div>
 			</div>
 		</div>
 	</ng-container>
+
 </div>
 
 <div *ngIf="!hs.userRemoveNotate.length" class="wrapper">

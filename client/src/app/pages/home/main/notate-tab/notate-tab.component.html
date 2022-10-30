@@ -20,22 +20,22 @@
 					</pre>
 					<!-- icon -->
 					<div class="settings-items click-out" [class.writeNotate]="!hs.writing">
-						<div class="settings-items__item info click-out">
+						<div data-tooltip="Notification" class="settings-items__item info click-out">
 							<img class="image" src="assets/icon/notification.svg" alt="">
 						</div>
-						<div class="settings-items__item info click-out">
+						<div data-tooltip="More" class="settings-items__item info click-out">
 							<img class="image" src="assets/icon/more.svg" alt="">
 						</div>
-						<div (click)="hs.writingChangeColor()" class="settings-items__item info click-out">
+						<div data-tooltip="Palette" (click)="hs.writingChangeColor()" class="settings-items__item info click-out">
 							<img class="image" src="assets/icon/palitra.svg" alt="">
 						</div>
-						<div class="settings-items__item info click-out" (click)="Undo()">
+						<div data-tooltip="Cancel" class="settings-items__item info click-out" (click)="Undo()">
 							<img class="image" src="assets/icon/arrow-left.svg" alt="">
 						</div>
-						<div class="settings-items__item info click-out" (click)="Redo()">
+						<div data-tooltip="Repeat" class="settings-items__item info click-out" (click)="Redo()">
 							<img class="image" src="assets/icon/arrow-right.svg" alt="">
 						</div>
-						<div class="settings-items__item info">
+						<div data-tooltip="Trash" class="settings-items__item info">
 							<img class="trash" src="assets/icon/trash.svg" alt="">
 						</div>
 					</div>

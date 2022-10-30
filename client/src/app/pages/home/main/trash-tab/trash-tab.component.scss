@@ -1,5 +1,6 @@
 @import "../../../../../scss/media.scss";
 @import "../../../../../scss/background-notate.scss";
+@import "../../../../../scss/data-tooltip.scss";
 
 // Main Notate
 .state-notate {
@@ -43,6 +44,7 @@
 }
 
 .main-notate {
+	position: relative;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 	flex-wrap: wrap-reverse;
@@ -69,8 +71,6 @@
 //  notate
 .notate {
 	border: 1px solid #bcbcbc;
-	position: relative;
-	overflow: hidden;
 	max-width: 240px;
 	cursor: default;
 	width: 100%;
@@ -80,9 +80,10 @@
 	color: #000;
 	transform: rotate(180deg);
 	direction: ltr;
-	position: relative;
+	overflow: hidden;
 
 	&:hover {
+		animation: delay-overflow 0s linear 1 alternate 0.3s forwards;
 		transition: 0.3s;
 		box-shadow: 1px 1px 5px 2px rgb(60 64 67 / 30%), 0 1px 1px 1px rgb(60 64 67 / 15%);
 		.notate-settings {
@@ -93,6 +94,12 @@
 	@include w_600 {
 		max-width: inherit;
 		margin: 8px 0;
+	}
+}
+
+@keyframes delay-overflow {
+	100% {
+		overflow: visible;
 	}
 }
 
@@ -165,6 +172,9 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	@include w_900 {
+		margin-top: 20%;
+	}
 }
 .block {
 	display: flex;
@@ -179,6 +189,10 @@
 		filter: opacity(0.3);
 		width: 200px;
 		height: 200px;
+		@include w_600 {
+			width: 130px;
+			height: 130px;
+		}
 	}
 }
 
@@ -186,4 +200,8 @@
 	font-size: 26px;
 	letter-spacing: 1px;
 	color: #80868b;
+	text-align: center;
+	@include w_600 {
+		font-size: 20px;
+	}
 }

@@ -1,3 +1,5 @@
+@import "../../../../../scss/media.scss";
+
 .wrapper {
 	height: 90%;
 	width: 100%;
@@ -19,12 +21,19 @@
 		filter: opacity(0.3);
 		width: 200px;
 		height: 200px;
+		@include w_600 {
+			width: 130px;
+			height: 130px;
+		}
 	}
 }
 
-.block-text{
+.block-text {
 	font-size: 26px;
 	letter-spacing: 1px;
 	color: #80868b;
+	text-align: center;
+	@include w_600 {
+		font-size: 20px;
+	}
 }
-
