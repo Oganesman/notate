@@ -81,9 +81,6 @@ router.post('/fixed', async (req, res) => {
 router.post('/remove', async (req, res) => {
 	try {
 		const { id, removeState } = req.body
-		console.log(id);
-		console.log(removeState);
-
 		await notateSchema.updateOne({ _id: id }, {
 			$set: {
 				removeState: removeState
@@ -95,29 +92,16 @@ router.post('/remove', async (req, res) => {
 	}
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // delete
-// router.delete('/delete', async (req, res) => {
-// 	try {
-// 		const id = req.query
-// 		await notateSchema.findByIdAndDelete(id)
-// 		res.status(200).json('notate success deleted')
-// 	} catch (err) {
-// 		return res.status(500).json(err)
-// 	}
-// })
+router.delete('/delete', async (req, res) => {
+	try {
+		const id = req.query
+		await notateSchema.findByIdAndDelete(id)
+		res.status(200).json('notate success deleted')
+	} catch (err) {
+		return res.status(500).json(err)
+	}
+})
 
 //all notates
 // router.get('/fetch/notates', async (req, res) => {

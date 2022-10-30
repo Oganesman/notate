@@ -37,8 +37,6 @@ export class HomeService {
 	// change tab
 	changeTab(tab: string) {
 		this.tabShow = tab
-		console.log(this.tabShow);
-
 	}
 
 	// modal edit notate
@@ -93,11 +91,6 @@ export class HomeService {
 						this.userSimpleNotates.push(el)
 					}
 				})
-
-				console.log(this.userRemoveNotate);
-				console.log(this.userSimpleNotates);
-				console.log(this.userFixedNotates);
-				
 			})
 	}
 
@@ -141,17 +134,7 @@ export class HomeService {
 			return this.createNotates()
 		}
 	}
-	// delete Notate
-	// deleteNotate(id: string) {
-	// 	let headers = new HttpHeaders()
-	// 	headers.append('Content-Type', 'application/json')
-	// 	this.http.delete(`http://localhost:5000/notate/delete?_id=${id}`)
-	// 		.pipe(map(data => data))
-	// 		.subscribe(data => {
-	// 			this.showNotates()
-	// 			this.showEditModal = false
-	// 		})
-	// }
+	
 
 	// change Background Color Notate for writing block
 	writingChangeColor() {
