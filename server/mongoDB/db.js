@@ -1,4 +1,4 @@
 module.exports = {
-	db: "mongodb://localhost:27017/notate",
+	db: "mongodb+srv://Oganesman:Oganesman2001@notate.zxnpzmx.mongodb.net/?retryWrites=true&w=majority",
 	secret: 'oganes_notate'
 }
