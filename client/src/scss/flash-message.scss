@@ -1,3 +1,5 @@
+@import "./media.scss";
+
 // danger
 .custom-danger,
 .notate-danger {
@@ -22,6 +24,10 @@
 	width: 27%;
 	left: 65px;
 	bottom: 3%;
+	@include w_760 {
+		width: 50%;
+		min-width: 200px;
+	}
 }
 
 // success
@@ -48,4 +54,8 @@
 	width: 27%;
 	left: 65px;
 	bottom: 3%;
+	@include w_760 {
+		width: 50%;
+		min-width: 200px;
+	}
 }
