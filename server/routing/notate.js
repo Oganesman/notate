@@ -42,7 +42,7 @@ router.patch('/update', async (req, res) => {
 				description
 			}
 		})
-		res.status(200).json('item success updated')
+		res.status(200).json('Notate success updated')
 	} catch (err) {
 		return res.status(500).json(err)
 	}
@@ -86,7 +86,7 @@ router.post('/remove', async (req, res) => {
 				removeState: removeState
 			}
 		})
-		res.status(200).json('notate remove')
+		res.status(200).json('Note moved to trash')
 	} catch (err) {
 		return res.status(500).json('don\'t remove')
 	}
@@ -97,7 +97,7 @@ router.delete('/delete', async (req, res) => {
 	try {
 		const id = req.query
 		await notateSchema.findByIdAndDelete(id)
-		res.status(200).json('notate success deleted')
+		res.status(200).json('Notate deleted')
 	} catch (err) {
 		return res.status(500).json(err)
 	}

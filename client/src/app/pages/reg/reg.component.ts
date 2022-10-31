@@ -21,8 +21,6 @@ export class RegComponent implements OnInit {
 			password: this.password,
 		}
 		this.rs.checkParametrs(newUser)
-		console.log(newUser);
-		
 		return false
 	}
 	ngOnInit(): void {

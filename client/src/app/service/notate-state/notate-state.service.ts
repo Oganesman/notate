@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HomeService } from '../home/home.service';
 import { map } from 'rxjs';
+import { FlashMessagesService } from 'flash-messages-angular';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { map } from 'rxjs';
 })
 export class NotateStateService {
 
-	constructor(private http: HttpClient, private hs: HomeService) {
+	constructor(private http: HttpClient, private hs: HomeService, private fm: FlashMessagesService) {
 	}
 
 	// fixed notate
@@ -32,12 +33,30 @@ export class NotateStateService {
 			id: notate._id,
 			removeState: notate.removeState == undefined ? true : !notate.removeState,
 		}
-
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
 		this.http.post('http://localhost:5000/notate/remove', removeNotate, { headers: headers })
-			.subscribe(() => {
+			.subscribe((data: any) => {
+				if (removeNotate.removeState) {
+					this.fm.show(data, {
+						cssClass: 'notate-danger',
+						timeout: 1500
+					})
+				} else {
+					if (localStorage.getItem('lang') == 'en') {
+						this.fm.show('Note Reestablish', {
+							cssClass: 'notate-success',
+							timeout: 1500
+						})
+					} else {
+						this.fm.show('Нотатку відновленно', {
+							cssClass: 'notate-success',
+							timeout: 1500
+						})
+					}
+				}
 				this.hs.showNotates()
+				this.hs.showEditModal = false
 			})
 	}
 
@@ -47,7 +66,11 @@ export class NotateStateService {
 		headers.append('Content-Type', 'application/json')
 		this.http.delete(`http://localhost:5000/notate/delete?_id=${id}`)
 			.pipe(map(data => data))
-			.subscribe(data => {
+			.subscribe((data: any) => {
+				this.fm.show(data, {
+					cssClass: 'notate-danger',
+					timeout: 1500
+				})
 				this.hs.showNotates()
 				this.hs.showEditModal = false
 			})
@@ -56,8 +79,8 @@ export class NotateStateService {
 	// delete all
 	deleteAllNotate() {
 		for (let i = 0; i < this.hs.userRemoveNotate.length; i++) {
-				let idNotate = this.hs.userRemoveNotate[i]._id
-				this.deleteNotate(idNotate)
+			let idNotate = this.hs.userRemoveNotate[i]._id
+			this.deleteNotate(idNotate)
 		}
 	}
 }

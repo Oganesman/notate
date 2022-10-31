@@ -37,14 +37,13 @@ export class RegestrationService {
 			this.http.post('http://localhost:5000/user/reg', newUser, { headers: headers })
 				.pipe(map(data => data))
 				.subscribe((data: any) => {
-					console.log(data);
-					if (data.status == true){
+					if (data.status == true) {
 						this.fm.show(data.msg, {
 							cssClass: 'custom-success',
 							timeout: 3000
 						})
 						this.router.navigate([""])
-					}else{
+					} else {
 						this.fm.show(data.msg, {
 							cssClass: 'custom-danger',
 							timeout: 3000

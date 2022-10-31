@@ -1,9 +1,8 @@
-.custom-danger{
-	width: 80%;
+// danger
+.custom-danger,
+.notate-danger {
 	position: fixed !important;
 	z-index: 1;
-	left: 10%;
-	top: 2%;
 	text-align: center;
 	overflow: auto;
 	--bs-alert-color: #842029;
@@ -13,12 +12,23 @@
 	z-index: 7;
 }
 
-.custom-success{
+.custom-danger {
 	width: 80%;
-	position: fixed !important;
-	z-index: 1;
 	left: 10%;
 	top: 2%;
+}
+
+.notate-danger {
+	width: 27%;
+	left: 65px;
+	bottom: 3%;
+}
+
+// success
+.custom-success,
+.notate-success {
+	position: fixed !important;
+	z-index: 1;
 	text-align: center;
 	overflow: auto;
 	--bs-alert-color: #0f5132;
@@ -26,4 +36,16 @@
 	--bs-alert-border-color: #badbcc;
 	color: var(--bs-alert-color);
 	z-index: 7;
+}
+
+.custom-success {
+	width: 80%;
+	left: 10%;
+	top: 2%;
+}
+
+.notate-success {
+	width: 27%;
+	left: 65px;
+	bottom: 3%;
 }

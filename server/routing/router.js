@@ -9,7 +9,7 @@ router.post('/reg', async (req, res) => {
 	const { name, email, password } = req.body
 	const isSigned = await usersSchema.findOne({ email })
 	if (isSigned) {
-		res.json({ status: false, msg: "Such user already exists" })
+		res.json({ status: false, msg: "Such email already exists" })
 	}
 	else {
 		let newUser = new usersSchema({

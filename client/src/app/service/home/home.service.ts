@@ -64,8 +64,11 @@ export class HomeService {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
 		this.http.post('http://localhost:5000/notate/create', newNotate, { headers: headers })
-			.pipe(map(data => data))
-			.subscribe(data => {
+			.subscribe((data: any) => {
+				this.fm.show(data.msg, {
+					cssClass: 'notate-success',
+					timeout: 1500
+				})
 				this.showNotates()
 			})
 	}
@@ -107,8 +110,8 @@ export class HomeService {
 		let headers = new HttpHeaders()
 		headers.append('Content-Type', 'application/json')
 		this.http.patch('http://localhost:5000/notate/update', newEdit, { headers: headers })
-			.pipe(map(data => data))
-			.subscribe(data => data)
+			.subscribe((data: any) => {
+			})
 	}
 
 	//click Outside and create notate
@@ -134,7 +137,7 @@ export class HomeService {
 			return this.createNotates()
 		}
 	}
-	
+
 
 	// change Background Color Notate for writing block
 	writingChangeColor() {

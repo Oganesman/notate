@@ -35,8 +35,6 @@ export class AuthorizationService {
 			this.http.post('http://localhost:5000/user/auth', authUser, { headers: headers })
 				.pipe(map(data => data))
 				.subscribe((data: any) => {
-					console.log(data);
-					
 					if (data.status == false) {
 						this.fm.show(data.msg, {
 							cssClass: 'custom-danger',
