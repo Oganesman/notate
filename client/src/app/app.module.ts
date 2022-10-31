@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { RegComponent } from './pages/reg/reg.component';
 import { AuthComponent } from './pages/auth/auth.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'flash-messages-angular';
@@ -34,7 +33,6 @@ const routers: Routes = [
 	{ path: '', component: HomeComponent, canActivate: [AuthenticateGuard] },
 	{ path: 'reg', component: RegComponent },
 	{ path: 'auth', component: AuthComponent },
-	{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticateGuard] },
 ]
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,7 +46,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 		HomeComponent,
 		RegComponent,
 		AuthComponent,
-		DashboardComponent,
 		LoggoutModalComponent,
 		HeaderComponent,
 		SidebarComponent,
