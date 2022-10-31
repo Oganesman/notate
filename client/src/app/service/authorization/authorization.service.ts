@@ -32,7 +32,7 @@ export class AuthorizationService {
 		else {
 			let headers = new HttpHeaders()
 			headers.append('Content-Type', 'application/json')
-			this.http.post('http://localhost:5000/user/auth', authUser, { headers: headers })
+			this.http.post('user/auth', authUser, { headers: headers })
 				.pipe(map(data => data))
 				.subscribe((data: any) => {
 					if (data.status == false) {

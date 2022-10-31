@@ -9,7 +9,7 @@ const passport = require('passport')
 const session = require('express-session')
 
 const app = express()
-const port = 5000
+const port = process.env.PORT || 8080
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -23,6 +23,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 require('./passport/passport')(passport)
+
+// create static file (html,css...)
+app.use(express.static(path.join(__dirname, 'public')))
 
 //mongoDB
 mongoose.connect(mongoDB.db)
@@ -39,6 +42,10 @@ app.get('/', (req, res) => {
 })
 app.use('/user', userRouting)
 app.use('/notate', notateRouting)
+
+app.get('*', (req,res) => {
+	res.sendFile(path.join(__dirname, 'public/index.html'))
+})
 
 app.listen(port, function (req, res) {
 	console.log('Server started on port ' + port)
