@@ -38,10 +38,17 @@ export class NotateStateService {
 		this.http.post('http://localhost:5000/notate/remove', removeNotate, { headers: headers })
 			.subscribe((data: any) => {
 				if (removeNotate.removeState) {
-					this.fm.show(data, {
-						cssClass: 'notate-danger',
-						timeout: 1500
-					})
+					if (localStorage.getItem('lang') == 'en') {
+						this.fm.show(data, {
+							cssClass: 'notate-danger',
+							timeout: 1500
+						})
+					} else {
+						this.fm.show('Нотатку переміщенно у корзинку', {
+							cssClass: 'notate-danger',
+							timeout: 1500
+						})
+					}
 				} else {
 					if (localStorage.getItem('lang') == 'en') {
 						this.fm.show('Note Reestablish', {
@@ -67,10 +74,17 @@ export class NotateStateService {
 		this.http.delete(`http://localhost:5000/notate/delete?_id=${id}`)
 			.pipe(map(data => data))
 			.subscribe((data: any) => {
-				this.fm.show(data, {
-					cssClass: 'notate-danger',
-					timeout: 1500
-				})
+				if (localStorage.getItem('lang') == 'en') {
+					this.fm.show(data, {
+						cssClass: 'notate-danger',
+						timeout: 1500
+					})
+				} else {
+					this.fm.show('Нотатку видалено', {
+						cssClass: 'notate-danger',
+						timeout: 1500
+					})
+				}
 				this.hs.showNotates()
 				this.hs.showEditModal = false
 			})

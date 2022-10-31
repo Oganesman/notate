@@ -65,10 +65,17 @@ export class HomeService {
 		headers.append('Content-Type', 'application/json')
 		this.http.post('http://localhost:5000/notate/create', newNotate, { headers: headers })
 			.subscribe((data: any) => {
-				this.fm.show(data.msg, {
-					cssClass: 'notate-success',
-					timeout: 1500
-				})
+				if (localStorage.getItem('lang') == 'en') {
+					this.fm.show(data.msg, {
+						cssClass: 'notate-success',
+						timeout: 1500
+					})
+				} else {
+					this.fm.show('Нотатку створенно', {
+						cssClass: 'notate-success',
+						timeout: 1500
+					})
+				}
 				this.showNotates()
 			})
 	}
